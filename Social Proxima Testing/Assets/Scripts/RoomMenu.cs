@@ -11,16 +11,17 @@ public class Room : MonoBehaviour
     private RoomSpecs room;
     // Update is called once per frame
 
-    void Start()
+    void Awake()
     {
         room = new RoomSpecs();
     }
 
     void Update()
     {
-        float length = room.GetLength();
-        float width = room.GetWidth();
-        float height = room.GetHeight();
+        room.SetLength(slider1.value);
+        room.SetWidth(slider2.value);
+        room.SetHeight(slider3.value);
+        /**
         if (length != slider1.value)
         {
             room.SetLength(slider1.value);
@@ -28,13 +29,16 @@ public class Room : MonoBehaviour
         }
         if (width != slider2.value)
         {
-            width = slider2.value;
+            room.SetWidth(slider2.value);
+            //width = slider2.value;
             //Debug.Log(width);
         }
         if (height != slider3.value)
         {
-            height = slider3.value;
+            room.SetHeight(slider3.value);
+            //height = slider3.value;
             //Debug.Log(height);
         }
+        **/
     }
 }

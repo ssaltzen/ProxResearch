@@ -8,14 +8,12 @@ public class RoomSpecs
     private float width;
     private float height;
 
-    // Make Getters Later
-
     public float GetLength()
     {
         return length;
     }
 
-    public void GetLength(float length)
+    public void SetLength(float length)
     {
         this.length = length;
     }
@@ -25,7 +23,7 @@ public class RoomSpecs
         return width;
     }
 
-    public void GetWidth(float width)
+    public void SetWidth(float width)
     {
         this.width = width;
     }
@@ -35,7 +33,7 @@ public class RoomSpecs
         return height;
     }
 
-    public void GetHeight(float height)
+    public void SetHeight(float height)
     {
         this.height = height;
     }

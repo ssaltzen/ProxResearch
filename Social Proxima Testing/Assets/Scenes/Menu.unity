@@ -3119,7 +3119,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1724843259}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b055860ccd32de54dafd25965aac628c, type: 3}
   m_Name: 
@@ -3127,9 +3127,6 @@ MonoBehaviour:
   slider1: {fileID: 1996747009}
   slider2: {fileID: 1490268482}
   slider3: {fileID: 1557415388}
-  width: 0
-  length: 0
-  height: 0
 --- !u!1 &1774759832
 GameObject:
   m_ObjectHideFlags: 0
@@ -3630,9 +3627,6 @@ MonoBehaviour:
   slider1: {fileID: 0}
   slider2: {fileID: 0}
   slider3: {fileID: 0}
-  width: 0
-  length: 0
-  height: 0
 --- !u!1 &2023869139
 GameObject:
   m_ObjectHideFlags: 0
