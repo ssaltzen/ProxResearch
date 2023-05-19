@@ -7,12 +7,13 @@ public class SpawnFurniture : MonoBehaviour
     private float throttle = 0.0f;
     private float throttleCounter = 0.0f;
     private List<GameObject> furniture;
+    private FurnitureList furnitureComponent;
     // Start is called before the first frame update
     void Start()
     {
         furniture = new List<GameObject>();
-        furniture = GetComponent<FurnitureList>().GetFurnitureList();
-        
+        furnitureComponent = GetComponent<FurnitureList>();
+        furniture = furnitureComponent.GetFurnitureList();
     }
 
     // Update is called once per frame
@@ -29,9 +30,16 @@ public class SpawnFurniture : MonoBehaviour
                 {
                     Debug.Log("Spawning... " + furniture);
                     Instantiate(furniture[0]);
-                    throttle = 3.0f;
-                    throttleCounter = 0.0f;
+                    furniture.RemoveAt(0);
+                    furnitureComponent.SetFurnitureList(furniture);
+                    furniture = furnitureComponent.GetFurnitureList();
                 }
+                else
+                {
+                    Debug.Log("No Furniture Left to Spawn in List!");
+                }
+                throttle = 1.0f;
+                throttleCounter = 0.0f;
             }
         }
     }
