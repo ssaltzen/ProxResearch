@@ -27,6 +27,7 @@ public class FurnitureList : MonoBehaviour
         furnitureList.Add(chair);
         furnitureList.Add(lamp);
         furnitureList.Add(sofa);
+        //Debug.Log();
         //      Set items to actual list we want
         SetInstantiableItems();
 
@@ -38,13 +39,14 @@ public class FurnitureList : MonoBehaviour
         //      to be in instantiateFurnitureList
         foreach (var item in furnitureList)
         {
-            instantiateFurnitureList.Add(item);
+            this.instantiateFurnitureList.Add(item);
         }
         
     }
 
     public List<GameObject> GetFurnitureList()
     {
+        Debug.Log(this.instantiateFurnitureList);
         return instantiateFurnitureList;
     }
 
