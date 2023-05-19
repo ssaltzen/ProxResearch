@@ -183,7 +183,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 5491766082638485276, guid: 07f4bb187d8e24ccfb3a375c670ceef3, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -292,6 +292,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: 6545555101022885745, guid: 9701352379f904b7395b960ee561ce80, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 265ee7e21ad984ddaa44270e150c8b6e, type: 2}
     - target: {fileID: 8871025505776584113, guid: 9701352379f904b7395b960ee561ce80, type: 3}
       propertyPath: m_Name
       value: Wall (1)
@@ -455,7 +459,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2916259933813342390, guid: 07f4bb187d8e24ccfb3a375c670ceef3, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -625,6 +629,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: 6545555101022885745, guid: 9701352379f904b7395b960ee561ce80, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 16518a5f9ef8a480a912f1a15e9187e7, type: 2}
     - target: {fileID: 8871025505776584113, guid: 9701352379f904b7395b960ee561ce80, type: 3}
       propertyPath: m_Name
       value: Wall (2)
@@ -698,6 +706,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: 6545555101022885745, guid: 9701352379f904b7395b960ee561ce80, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c43fea23e36a44a3f826efed91e6c9db, type: 2}
     - target: {fileID: 8871025505776584113, guid: 9701352379f904b7395b960ee561ce80, type: 3}
       propertyPath: m_Name
       value: Wall (3)
@@ -775,6 +787,10 @@ PrefabInstance:
       propertyPath: m_ProvidesContacts
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6545555101022885745, guid: 9701352379f904b7395b960ee561ce80, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 3b0cfadcc67694ce8b8b6187ca69fef0, type: 2}
     - target: {fileID: 8871025505776584113, guid: 9701352379f904b7395b960ee561ce80, type: 3}
       propertyPath: m_Name
       value: Wall
