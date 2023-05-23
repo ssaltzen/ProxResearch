@@ -18,9 +18,9 @@ public class Room : MonoBehaviour
 
     void Update()
     {
-        room.SetLength(slider1.value);
-        room.SetWidth(slider2.value);
-        room.SetHeight(slider3.value);
+        //room.SetLength(slider1.value);
+        //room.SetWidth(slider2.value);
+        //room.SetHeight(slider3.value);
         /**
         if (length != slider1.value)
         {

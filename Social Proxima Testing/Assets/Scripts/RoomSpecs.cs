@@ -1,41 +1,43 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class RoomSpecs
+public class RoomSpecs : MonoBehaviour
 {
-    private float length;
-    private float width;
-    private float height;
+    // Room Values from Sliders
+    public static float length;
+    public static float width;
+    public static float height;
+    // Furniture(On/Off)
+    public static bool lamp;
+    public static bool f2;
+    public static bool f3;
 
-    public float GetLength()
+    [SerializeField] public Slider lengthSlider;
+    [SerializeField] public Slider widthSlider;
+    [SerializeField] public Slider heightSlider;
+
+    [SerializeField] public Button lampButton;
+    //[SerializeField] public Button button2;
+    //[SerializeField] public Button button3;
+
+    void Start()
     {
-        return length;
+        length = lengthSlider.value;
+        width = widthSlider.value;
+        height = heightSlider.value;
+        
+        //lamp = lampButton.
+        Debug.Log(length);
     }
 
-    public void SetLength(float length)
+    void Update()
     {
-        this.length = length;
-    }
-
-    public float GetWidth()
-    {
-        return width;
-    }
-
-    public void SetWidth(float width)
-    {
-        this.width = width;
-    }
-
-    public float GetHeight()
-    {
-        return height;
-    }
-
-    public void SetHeight(float height)
-    {
-        this.height = height;
+        //if (length != slider1.value)
+        length = lengthSlider.value;
+        width = widthSlider.value;
+        height = heightSlider.value;
     }
 }
 
