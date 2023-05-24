@@ -22,14 +22,23 @@ public class RoomSpecs : MonoBehaviour
     //[SerializeField] public Button button2;
     //[SerializeField] public Button button3;
 
-    void Start()
+    void Awake()
     {
         length = lengthSlider.value;
         width = widthSlider.value;
         height = heightSlider.value;
-        
+
         //lamp = lampButton.
-        Debug.Log(length);
+        //Debug.Log(length);
+    }
+
+    // I think this is important for when you "pause" the Game.
+    // I am hoping to save the room's specs when we pause. 
+    void Start()
+    {
+        lengthSlider.value = length;
+        widthSlider.value = width;
+        heightSlider.value = height;
     }
 
     void Update()

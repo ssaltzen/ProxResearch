@@ -5,15 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class PauseToMain : MonoBehaviour
 {
-    public void Play()
+    void Update()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
-        Debug.Log("Play");
-    }
-
-    public void Quit()
-    {
-        Application.Quit();
-        Debug.Log("Quit");
+        if (Input.GetKey(KeyCode.P))
+        {
+            var index = SceneManager.GetActiveScene().buildIndex + 1;
+            index %= 2;
+            SceneManager.LoadScene(index);
+        }
     }
 }

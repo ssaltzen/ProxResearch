@@ -44,20 +44,20 @@ public class SetScale : MonoBehaviour
 
         // Change Positions of Walls Accordingly.
         leftWall.transform.position = new Vector3(
-            center.transform.position.x - roomLength,
+            center.transform.position.x - roomWidth,
             center.transform.position.y,
             center.transform.position.z);
         rightWall.transform.position = new Vector3(
-            center.transform.position.x + roomLength,
+            center.transform.position.x + roomWidth,
             center.transform.position.y,
             center.transform.position.z);
         frontWall.transform.position = new Vector3(
             center.transform.position.x,
             center.transform.position.y,
-            center.transform.position.z + roomWidth);
+            center.transform.position.z + roomLength);
         backWall.transform.position = new Vector3(
             center.transform.position.x,
             center.transform.position.y,
-            center.transform.position.z - roomWidth);
+            center.transform.position.z - roomLength);
     }
 }

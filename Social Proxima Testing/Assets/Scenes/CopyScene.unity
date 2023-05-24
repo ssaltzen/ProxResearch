@@ -251,7 +251,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!65 &491092246
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -293,7 +293,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 5491766082638485276, guid: 07f4bb187d8e24ccfb3a375c670ceef3, type: 3}
+  - {fileID: -6576338504003414195, guid: 07f4bb187d8e24ccfb3a375c670ceef3, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -331,7 +331,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 491092245}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 25.246998, z: 0}
+  m_LocalPosition: {x: 0, y: 19, z: 0}
   m_LocalScale: {x: 60, y: 3.5563762, z: 60}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -368,7 +368,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3230830744285800881, guid: 9701352379f904b7395b960ee561ce80, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 7.14
       objectReference: {fileID: 0}
     - target: {fileID: 3230830744285800881, guid: 9701352379f904b7395b960ee561ce80, type: 3}
       propertyPath: m_LocalPosition.z
@@ -409,7 +409,7 @@ PrefabInstance:
     - target: {fileID: 6545555101022885745, guid: 9701352379f904b7395b960ee561ce80, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 265ee7e21ad984ddaa44270e150c8b6e, type: 2}
+      objectReference: {fileID: -6576338504003414195, guid: 07f4bb187d8e24ccfb3a375c670ceef3, type: 3}
     - target: {fileID: 8871025505776584113, guid: 9701352379f904b7395b960ee561ce80, type: 3}
       propertyPath: m_Name
       value: LeftWall
@@ -582,7 +582,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2916259933813342390, guid: 07f4bb187d8e24ccfb3a375c670ceef3, type: 3}
+  - {fileID: -6576338504003414195, guid: 07f4bb187d8e24ccfb3a375c670ceef3, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -692,6 +692,7 @@ GameObject:
   - component: {fileID: 1294128096}
   - component: {fileID: 1294128095}
   - component: {fileID: 1294128097}
+  - component: {fileID: 1294128098}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -742,6 +743,18 @@ MonoBehaviour:
   chair: {fileID: 2481176400181179556, guid: a8500d6be86d04eaabda69ed3bd59c78, type: 3}
   lamp: {fileID: 3666222976092494508, guid: d8357396ebc2b4b87a2b532693bc9d49, type: 3}
   sofa: {fileID: 1032730393219308067, guid: 63f358a3f78e5409b9c5baff3e9b85f2, type: 3}
+--- !u!114 &1294128098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1294128094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7197dbfeb142a0f4e98f7243a7d31c13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1892266475 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8871025505776584113, guid: 9701352379f904b7395b960ee561ce80, type: 3}
@@ -818,7 +831,7 @@ PrefabInstance:
     - target: {fileID: 6545555101022885745, guid: 9701352379f904b7395b960ee561ce80, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 16518a5f9ef8a480a912f1a15e9187e7, type: 2}
+      objectReference: {fileID: -6576338504003414195, guid: 07f4bb187d8e24ccfb3a375c670ceef3, type: 3}
     - target: {fileID: 8871025505776584113, guid: 9701352379f904b7395b960ee561ce80, type: 3}
       propertyPath: m_Name
       value: FrontWall
@@ -908,7 +921,7 @@ PrefabInstance:
     - target: {fileID: 6545555101022885745, guid: 9701352379f904b7395b960ee561ce80, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: c43fea23e36a44a3f826efed91e6c9db, type: 2}
+      objectReference: {fileID: -6576338504003414195, guid: 07f4bb187d8e24ccfb3a375c670ceef3, type: 3}
     - target: {fileID: 8871025505776584113, guid: 9701352379f904b7395b960ee561ce80, type: 3}
       propertyPath: m_Name
       value: BackWall
@@ -967,7 +980,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3230830744285800881, guid: 9701352379f904b7395b960ee561ce80, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 6.99
       objectReference: {fileID: 0}
     - target: {fileID: 3230830744285800881, guid: 9701352379f904b7395b960ee561ce80, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1012,7 +1025,7 @@ PrefabInstance:
     - target: {fileID: 6545555101022885745, guid: 9701352379f904b7395b960ee561ce80, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 4689782388615639557, guid: 07f4bb187d8e24ccfb3a375c670ceef3, type: 3}
+      objectReference: {fileID: -6576338504003414195, guid: 07f4bb187d8e24ccfb3a375c670ceef3, type: 3}
     - target: {fileID: 8871025505776584113, guid: 9701352379f904b7395b960ee561ce80, type: 3}
       propertyPath: m_Name
       value: RightWall
