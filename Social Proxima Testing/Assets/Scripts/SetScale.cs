@@ -4,13 +4,17 @@ using UnityEngine;
 
 public class SetScale : MonoBehaviour
 {
+    // Lengths:
     // For Left and Right Wall, change X Axis.
     // For Front and Back Wall, change Z Axis. 
+
     // Start is called before the first frame update
     [SerializeField] public GameObject leftWall;
     [SerializeField] public GameObject rightWall;
     [SerializeField] public GameObject frontWall;
     [SerializeField] public GameObject backWall;
+    // Use for reference of walls!
+    [SerializeField] public GameObject center; 
 
     void Awake()
     {
@@ -21,23 +25,39 @@ public class SetScale : MonoBehaviour
         float roomWidth = RoomSpecs.width;
 
         // Change Wall Size
-        leftWall.transform.localScale = new Vector3((float)RoomSpecs.length*5, 
-            leftWall.transform.localScale.y, leftWall.transform.localScale.z);
-        rightWall.transform.localScale = new Vector3((float)RoomSpecs.length * 5,
-            rightWall.transform.localScale.y, rightWall.transform.localScale.z);
-        frontWall.transform.localScale = new Vector3(frontWall.transform.localScale.x,
-            frontWall.transform.localScale.y, (float)RoomSpecs.width * 5);
-        backWall.transform.localScale = new Vector3(backWall.transform.localScale.x,
-            backWall.transform.localScale.y, (float)RoomSpecs.width * 5);
+        leftWall.transform.localScale = new Vector3(
+            roomLength * 2, 
+            leftWall.transform.localScale.y, 
+            leftWall.transform.localScale.z);
+        rightWall.transform.localScale = new Vector3(
+            roomLength * 2,
+            rightWall.transform.localScale.y, 
+            rightWall.transform.localScale.z);
+        frontWall.transform.localScale = new Vector3(
+            roomWidth * 2,
+            frontWall.transform.localScale.y,
+            frontWall.transform.localScale.z);
+        backWall.transform.localScale = new Vector3(
+            roomWidth * 2,
+            backWall.transform.localScale.y,
+            backWall.transform.localScale.z);
 
         // Change Positions of Walls Accordingly.
-        leftWall.transform.position = new Vector3(leftWall.transform.position.x,
-            leftWall.transform.position.y, roomLength);
-        rightWall.transform.position = new Vector3(rightWall.transform.position.x,
-            rightWall.transform.position.y, roomLength);
-        frontWall.transform.position = new Vector3(roomWidth,
-            frontWall.transform.position.y, frontWall.transform.position.z);
-        backWall.transform.position = new Vector3(roomWidth,
-            backWall.transform.position.y, backWall.transform.position.z);
+        leftWall.transform.position = new Vector3(
+            center.transform.position.x - roomLength,
+            center.transform.position.y,
+            center.transform.position.z);
+        rightWall.transform.position = new Vector3(
+            center.transform.position.x + roomLength,
+            center.transform.position.y,
+            center.transform.position.z);
+        frontWall.transform.position = new Vector3(
+            center.transform.position.x,
+            center.transform.position.y,
+            center.transform.position.z + roomWidth);
+        backWall.transform.position = new Vector3(
+            center.transform.position.x,
+            center.transform.position.y,
+            center.transform.position.z - roomWidth);
     }
 }
