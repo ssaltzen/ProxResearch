@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.4367544, g: 0.4843697, b: 0.5646225, a: 1}
+  m_IndirectSpecularColor: {r: 0.43675506, g: 0.4843703, b: 0.5646235, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -692,7 +692,6 @@ GameObject:
   - component: {fileID: 1294128096}
   - component: {fileID: 1294128095}
   - component: {fileID: 1294128097}
-  - component: {fileID: 1294128098}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -743,18 +742,6 @@ MonoBehaviour:
   chair: {fileID: 2481176400181179556, guid: a8500d6be86d04eaabda69ed3bd59c78, type: 3}
   lamp: {fileID: 3666222976092494508, guid: d8357396ebc2b4b87a2b532693bc9d49, type: 3}
   sofa: {fileID: 1032730393219308067, guid: 63f358a3f78e5409b9c5baff3e9b85f2, type: 3}
---- !u!114 &1294128098
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1294128094}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7197dbfeb142a0f4e98f7243a7d31c13, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1892266475 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8871025505776584113, guid: 9701352379f904b7395b960ee561ce80, type: 3}

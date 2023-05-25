@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 namespace Proxemics
 {
@@ -8,6 +9,7 @@ namespace Proxemics
         private CharacterController controller;
         private Vector3 playerVelocity;
         private bool groundedPlayer;
+        private GameObject gameController;
         
         [SerializeField] private float playerSpeed = 10.0f;
         [SerializeField] private float jumpHeight = 1.0f;
@@ -20,6 +22,7 @@ namespace Proxemics
         {
             controller = gameObject.GetComponent<CharacterController>();
             cameraTransform = FindObjectOfType<Camera>().gameObject.transform;
+            gameController = GameObject.Find("GameController");
         }
 
         private void Update()
@@ -59,6 +62,18 @@ namespace Proxemics
             {
                 playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
             }
+        }
+
+        private void OnFire()
+        {
+            gameController.GetComponent<SpawnFurniture>().CreateFurniture();
+        }
+
+        private void OnPause()
+        {
+            var index = SceneManager.GetActiveScene().buildIndex + 1;
+            index %= 2;
+            SceneManager.LoadScene(index);
         }
     }
 }
