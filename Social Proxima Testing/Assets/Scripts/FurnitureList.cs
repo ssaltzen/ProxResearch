@@ -7,8 +7,14 @@ public class FurnitureList : MonoBehaviour
     // Temporary (??) solution to getting all furniture items
     [SerializeField] private GameObject table;
     [SerializeField] private GameObject chair1;
-    [SerializeField] private GameObject lamp;
-    [SerializeField] private GameObject sofa;
+    [SerializeField] private GameObject chair2;
+    [SerializeField] private GameObject chair3;
+    [SerializeField] private GameObject chair4;
+    [SerializeField] private GameObject chair5;
+    [SerializeField] private GameObject chair6;
+    [SerializeField] private GameObject chair7;
+    [SerializeField] private GameObject chair8;
+    //[SerializeField] private GameObject sofa;
 
 
     // Total List of furniture items (???)
@@ -26,8 +32,15 @@ public class FurnitureList : MonoBehaviour
          
         furnitureList.Add(table);
         furnitureList.Add(chair1);
-        furnitureList.Add(lamp);
-        furnitureList.Add(sofa);
+        furnitureList.Add(chair2);
+        furnitureList.Add(chair3);
+        furnitureList.Add(chair4);
+        furnitureList.Add(chair5);
+        furnitureList.Add(chair6);
+        furnitureList.Add(chair7);
+        furnitureList.Add(chair8);
+        //furnitureList.Add(lamp);
+        //furnitureList.Add(sofa);
         //      Set items to actual list we want
         SetInstantiableItems();
 
