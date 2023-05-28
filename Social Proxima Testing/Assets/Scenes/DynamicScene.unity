@@ -626,7 +626,7 @@ GameObject:
   m_Component:
   - component: {fileID: 736373419}
   m_Layer: 0
-  m_Name: CameraPosition
+  m_Name: HeadPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1250,8 +1250,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4612f1c174800478a839d79b4594baf9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  playerHead: {fileID: 0}
+  player: {fileID: 1867987034}
+  playerHead: {fileID: 736373418}
   couch: {fileID: 1581921038}
 --- !u!114 &1294128100
 MonoBehaviour:
@@ -1924,9 +1924,9 @@ Transform:
   m_LocalScale: {x: 0.69064, y: 0.69064, z: 0.69064}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 736373419}
   - {fileID: 1667578509}
   - {fileID: 1903210484}
-  - {fileID: 736373419}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
