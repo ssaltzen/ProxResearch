@@ -26,6 +26,7 @@ namespace Proxemics
         private void Update()
         {
             Move();
+            Animate();
         }
 
         private void Move()
@@ -35,14 +36,8 @@ namespace Proxemics
             {
                 playerVelocity.y = 0f;
             }
-            animator.SetBool("Jump", !groundedPlayer);
-            
             // Pretty much stolen from CharacterController Move documention.
             Vector3 move = new Vector3(moveDirection.x, 0, moveDirection.y);
-
-            // The ternery operator is for backwards diagonal movement.
-            animator.SetFloat("Horizontal", moveDirection.x * (moveDirection.y >= 0 ? 1 : -1));
-            animator.SetFloat("Vertical", moveDirection.y);
 
             // So player moves in direction of the camera.
             move = cameraTransform.forward * move.z + cameraTransform.right * move.x;
@@ -54,6 +49,17 @@ namespace Proxemics
 
             // Rotate model based on where the player is looking.
             transform.rotation = Quaternion.Euler(0, cameraTransform.rotation.eulerAngles.y, 0);
+        }
+
+        private void Animate()
+        {
+            animator.SetBool("Jump", !controller.isGrounded);
+
+            // The ternery operator is for backwards diagonal movement.
+            animator.SetFloat("Horizontal", moveDirection.x * (moveDirection.y >= 0 ? 1 : -1));
+            animator.SetFloat("Vertical", moveDirection.y);
+
+            animator.SetBool("Moving", (moveDirection.magnitude > 0) || (controller.velocity.magnitude > 0));
         }
 
         // From Player Input component.
@@ -69,6 +75,11 @@ namespace Proxemics
             {
                 playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
             }
+        }
+
+        private void OnFire()
+        {
+            animator.SetTrigger("Social");
         }
     }
 }
