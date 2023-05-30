@@ -23,8 +23,8 @@ public class SpawnFurniture : MonoBehaviour
         // Throttle the spawn rate of furniture item
         throttleCounter += Time.deltaTime;
         
-        if (Input.GetKey(KeyCode.UpArrow))
-        {
+        //if (Input.GetKey(KeyCode.UpArrow))
+        //{
             furnitureComponent = GetComponent<FurnitureList>();
             furniture = furnitureComponent.GetFurnitureList();
             Debug.Log("Furniture available... " + furniture);
@@ -43,9 +43,9 @@ public class SpawnFurniture : MonoBehaviour
                 {
                     Debug.Log("No Furniture Left to Spawn in List!");
                 }
-                throttle = 0.5f;
+                throttle = 0.1f;
                 throttleCounter = 0.0f;
             }
-        }
+        //}
     }
 }

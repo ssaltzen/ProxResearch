@@ -53,6 +53,7 @@ public class FurnitureList : MonoBehaviour
         // TODO: Eventually add something from menu setting only furniture items selected
         //      to be in instantiateFurnitureList
 
+        // Temporary Controls over the number and type of furniture that spawns in...
         bool isTableSpawned = true;//GetComponent<RoomSpecs>().GetIfTableSpawns();
         int numOfChairs = 8;//GetComponent<RoomSpecs>().GetNumOfChairs();
 
