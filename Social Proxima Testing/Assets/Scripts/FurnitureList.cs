@@ -43,9 +43,12 @@ public class FurnitureList : MonoBehaviour
         //furnitureList.Add(sofa);
         //      Set items to actual list we want
 
+        // TODO: Need to find how to call this at end of Main Menu Scene
+        SetInstantiableItems();
+
     }
 
-    private void SetInstantiableItems()
+    public void SetInstantiableItems()
     {
         // TODO: Eventually add something from menu setting only furniture items selected
         //      to be in instantiateFurnitureList
@@ -67,7 +70,7 @@ public class FurnitureList : MonoBehaviour
         // Add in correct number of chairs
         for (var i = 0; i < numOfChairs; i++)
         {
-            Debug.Log(i);
+            Debug.Log(i + ": " + furnitureList[i]);
             this.instantiateFurnitureList.Add(furnitureList[i]);
         }
         
@@ -75,7 +78,6 @@ public class FurnitureList : MonoBehaviour
 
     public List<GameObject> GetFurnitureList()
     {
-        SetInstantiableItems(); // TODO: this is incorrect. Somehow lock this until menu selection is done
         Debug.Log(this.instantiateFurnitureList);
         return instantiateFurnitureList;
     }
