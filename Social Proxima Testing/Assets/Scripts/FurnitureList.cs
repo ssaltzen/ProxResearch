@@ -42,7 +42,6 @@ public class FurnitureList : MonoBehaviour
         //furnitureList.Add(lamp);
         //furnitureList.Add(sofa);
         //      Set items to actual list we want
-        SetInstantiableItems();
 
     }
 
@@ -50,15 +49,33 @@ public class FurnitureList : MonoBehaviour
     {
         // TODO: Eventually add something from menu setting only furniture items selected
         //      to be in instantiateFurnitureList
-        foreach (var item in furnitureList)
+
+        bool isTableSpawned = true;//GetComponent<RoomSpecs>().GetIfTableSpawns();
+        int numOfChairs = 8;//GetComponent<RoomSpecs>().GetNumOfChairs();
+
+        // Choose to spawn in table or not.
+        if (isTableSpawned == false)
         {
-            this.instantiateFurnitureList.Add(item);
+            furnitureList.RemoveAt(0);
+        }
+        else
+        {
+            this.instantiateFurnitureList.Add(furnitureList[0]);
+            furnitureList.RemoveAt(0);
+        }
+
+        // Add in correct number of chairs
+        for (var i = 0; i < numOfChairs; i++)
+        {
+            Debug.Log(i);
+            this.instantiateFurnitureList.Add(furnitureList[i]);
         }
         
     }
 
     public List<GameObject> GetFurnitureList()
     {
+        SetInstantiableItems(); // TODO: this is incorrect. Somehow lock this until menu selection is done
         Debug.Log(this.instantiateFurnitureList);
         return instantiateFurnitureList;
     }

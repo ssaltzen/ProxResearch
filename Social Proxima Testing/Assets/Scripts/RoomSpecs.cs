@@ -8,17 +8,17 @@ public class RoomSpecs : MonoBehaviour
     // Room Values from Sliders
     public static float length;
     public static float width;
-    public static float height;
+    public static int numOfChairs;
     // Furniture(On/Off)
-    public static bool lamp;
-    public static bool f2;
-    public static bool f3;
+    public static bool table = true;
+    //public static bool f2;
+    //public static bool f3;
 
     [SerializeField] public Slider lengthSlider;
     [SerializeField] public Slider widthSlider;
-    [SerializeField] public Slider heightSlider;
+    [SerializeField] public Slider chairSlider;
 
-    [SerializeField] public Button lampButton;
+    [SerializeField] public Toggle tableButton;
     //[SerializeField] public Button button2;
     //[SerializeField] public Button button3;
 
@@ -26,7 +26,7 @@ public class RoomSpecs : MonoBehaviour
     {
         length = lengthSlider.value;
         width = widthSlider.value;
-        height = heightSlider.value;
+        numOfChairs = (int) chairSlider.value;
 
         //lamp = lampButton.
         //Debug.Log(length);
@@ -38,7 +38,7 @@ public class RoomSpecs : MonoBehaviour
     {
         lengthSlider.value = length;
         widthSlider.value = width;
-        heightSlider.value = height;
+        chairSlider.value = numOfChairs;
     }
 
     void Update()
@@ -46,7 +46,29 @@ public class RoomSpecs : MonoBehaviour
         //if (length != slider1.value)
         length = lengthSlider.value;
         width = widthSlider.value;
-        height = heightSlider.value;
+        numOfChairs = (int) chairSlider.value;
+        Debug.Log(numOfChairs);
     }
+
+    public float GetCurrentLength()
+    {
+        return length;
+    }
+
+    public float GetCurrentWidth()
+    {
+        return width;
+    }
+
+    public int GetNumOfChairs()
+    {
+        return 8;
+    }
+
+    public bool GetIfTableSpawns()
+    {
+        return true;
+    }
+
 }
 
