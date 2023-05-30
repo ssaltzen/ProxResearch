@@ -1,5 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 
 namespace Proxemics
 {
@@ -9,6 +11,8 @@ namespace Proxemics
         private CharacterController controller;
         private Vector3 playerVelocity;
         private bool groundedPlayer;
+        private bool pointerOverUI;
+        private GameObject gameController; 
         
         [SerializeField] private float playerSpeed = 10.0f;
         [SerializeField] private float jumpHeight = 1.0f;
@@ -21,12 +25,15 @@ namespace Proxemics
         {
             controller = gameObject.GetComponent<CharacterController>();
             cameraTransform = FindObjectOfType<Camera>().gameObject.transform;
+            gameController = GameObject.Find("GameController");
         }
 
         private void Update()
         {
             Move();
             Animate();
+            pointerOverUI = EventSystem.current.IsPointerOverGameObject();
+            Debug.Log(pointerOverUI);
         }
 
         private void Move()
@@ -36,7 +43,7 @@ namespace Proxemics
             {
                 playerVelocity.y = 0f;
             }
-            // Pretty much stolen from CharacterController Move documention.
+            // Pretty much stolen from CharacterController Move documentation.
             Vector3 move = new Vector3(moveDirection.x, 0, moveDirection.y);
 
             // So player moves in direction of the camera.
@@ -55,7 +62,7 @@ namespace Proxemics
         {
             animator.SetBool("Jump", !controller.isGrounded);
 
-            // The ternery operator is for backwards diagonal movement.
+            // The ternary operator is for backwards diagonal movement.
             animator.SetFloat("Horizontal", moveDirection.x * (moveDirection.y >= 0 ? 1 : -1));
             animator.SetFloat("Vertical", moveDirection.y);
 
@@ -66,6 +73,11 @@ namespace Proxemics
         private void OnMove(InputValue value)
         {
             moveDirection = value.Get<Vector2>();
+        }
+
+        private void OnLook(InputValue value)
+        {
+            // ???
         }
 
         // From Player Input component.
@@ -80,6 +92,18 @@ namespace Proxemics
         private void OnFire()
         {
             animator.SetTrigger("Social");
+        }
+
+        private void OnPause()
+        {
+            var index = SceneManager.GetActiveScene().buildIndex + 1;
+            index %= 2;
+            SceneManager.LoadScene(index);
+        }
+
+        private void OnSpawnFurniture()
+        {
+            gameController.GetComponent<SpawnFurniture>().CreateFurniture();
         }
     }
 }
