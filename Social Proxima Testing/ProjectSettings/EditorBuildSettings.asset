@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Menu.unity
+    guid: 6ee949ea8a5ab3b4190db40b72f1564a
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: Assets/Scenes/SampleScene.unity
+    guid: 4f719c9a0fa82f64d950bc5d6d42f325
+  - enabled: 0
+    path: Assets/Scenes/CopyScene.unity
+    guid: 1c23984bc647d7843862de5cebcdfa4c
+  - enabled: 1
+    path: Assets/Scenes/DynamicScene.unity
+    guid: 19033e21aa13d4e4a8475295cde9649f
+  m_configObjects: {}
