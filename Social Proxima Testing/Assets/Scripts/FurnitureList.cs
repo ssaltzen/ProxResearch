@@ -14,6 +14,8 @@ public class FurnitureList : MonoBehaviour
     [SerializeField] private GameObject chair6;
     [SerializeField] private GameObject chair7;
     [SerializeField] private GameObject chair8;
+
+    int numbOfChairs;
     //[SerializeField] private GameObject sofa;
 
 
@@ -54,8 +56,10 @@ public class FurnitureList : MonoBehaviour
         //      to be in instantiateFurnitureList
 
         // Temporary Controls over the number and type of furniture that spawns in...
-        bool isTableSpawned = true;//GetComponent<RoomSpecs>().GetIfTableSpawns();
-        int numOfChairs = 8;//GetComponent<RoomSpecs>().GetNumOfChairs();
+        bool isTableSpawned = FurnitureMenuValues.table;//GetComponent<RoomSpecs>().GetIfTableSpawns();
+        int numOfChairs = FurnitureMenuValues.numOfChairs;
+
+        //Debug.Log(FurnitureMenuValues.length);
 
         // Choose to spawn in table or not.
         if (isTableSpawned == false)
@@ -74,6 +78,8 @@ public class FurnitureList : MonoBehaviour
             Debug.Log(i + ": " + furnitureList[i]);
             this.instantiateFurnitureList.Add(furnitureList[i]);
         }
+
+        //Debug.Log(furnitureValues);
         
     }
 
@@ -86,6 +92,11 @@ public class FurnitureList : MonoBehaviour
     public void SetFurnitureList(List<GameObject> newList)
     {
         this.instantiateFurnitureList = newList;
+    }
+
+    public void SetNumberOfChairs(int newNumber)
+    {
+        numbOfChairs = newNumber;
     }
 
     // Update is called once per frame

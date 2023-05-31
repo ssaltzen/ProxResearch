@@ -15,8 +15,8 @@ public class SetScale : MonoBehaviour
     void Awake()
     {
         //Temporary Manual Control over the room dimensions!
-        float roomLength = RoomSpecs.length;
-        float roomWidth = RoomSpecs.width;
+        float roomLength = FurnitureMenuValues.length;
+        float roomWidth = FurnitureMenuValues.width;
 
         // Set default minimum
         if (roomLength < 9)
@@ -33,13 +33,13 @@ public class SetScale : MonoBehaviour
         roomWidth = roomWidth - 9;
 
         float ratioOfLengthChange = roomLength / 21.0f;
-        float ratioOfWidthChange = roomLength / 21.0f;
+        float ratioOfWidthChange = roomWidth / 21.0f;
 
         // Scale can at max double the size of the room (scale of a 1 to 2 multiplier for size).
         // If length selected is 9, scale is multiplied be factor of 0 + 1 = 1.
         // If length is 30, scale multiplication factor is 1 + 1 = 2.
         float lengthSizeMultFactor = ratioOfLengthChange + 1;
-        float widthSizeMultFactor = ratioOfLengthChange + 1;
+        float widthSizeMultFactor = ratioOfWidthChange + 1;
 
         // Change Wall Size
         roomCube.transform.localScale = new Vector3(

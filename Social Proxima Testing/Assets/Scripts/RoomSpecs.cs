@@ -47,7 +47,7 @@ public class RoomSpecs : MonoBehaviour
         length = lengthSlider.value;
         width = widthSlider.value;
         numOfChairs = (int) chairSlider.value;
-        Debug.Log(numOfChairs);
+        //Debug.Log(numOfChairs);
     }
 
     public float GetCurrentLength()

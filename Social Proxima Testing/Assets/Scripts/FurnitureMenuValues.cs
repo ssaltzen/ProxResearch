@@ -46,5 +46,11 @@ public class FurnitureMenuValues : MonoBehaviour
         table = tableToggle.isOn;
         couch = couchToggle.isOn;
         numOfChairs = (int) chairSlider.value;
+        Debug.Log("number of chairs: " + numOfChairs);
+    }
+
+    public int GetNumberOfChairs()
+    {
+        return numOfChairs;
     }
 }
