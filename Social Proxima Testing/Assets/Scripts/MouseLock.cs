@@ -1,7 +1,8 @@
 using UnityEngine;
-
 public class MouseLock : MonoBehaviour
 {
+
+    private bool isLocked = true;
     void Start()
     {
         LockMouse();
@@ -9,13 +10,33 @@ public class MouseLock : MonoBehaviour
 
     void Update()
     {
-        UpdateMousePosition();
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            isLocked = !isLocked;
+            if (isLocked)
+            {
+                LockMouse();
+            }
+            else
+            {
+                UnlockMouse();
+            }
+        }
+        if (isLocked)
+        {
+            UpdateMousePosition();
+        }
     }
 
     void LockMouse()
     {
         Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        Cursor.visible = true;
+    }
+    void UnlockMouse()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 
     void UpdateMousePosition()
