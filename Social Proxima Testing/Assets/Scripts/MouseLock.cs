@@ -10,7 +10,7 @@ public class MouseLock : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
             isLocked = !isLocked;
             if (isLocked)
