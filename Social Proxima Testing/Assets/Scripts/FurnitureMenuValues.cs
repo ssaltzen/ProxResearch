@@ -12,6 +12,7 @@ public class FurnitureMenuValues : MonoBehaviour
     public static bool table = true;
     public static bool couch = true;
     public static int numOfChairs;
+    public static float lightLevel = 4.0f;
 
     // These are for changing the displays
     [SerializeField] public Slider lengthSlider;
@@ -21,6 +22,8 @@ public class FurnitureMenuValues : MonoBehaviour
     [SerializeField] public Slider chairSlider;
     [SerializeField] public Toggle tableToggle;
     [SerializeField] public Toggle couchToggle;
+    [SerializeField] public Slider lightSlider;
+    [SerializeField] private TextMeshProUGUI lightTextValue;
 
 
     void Awake()
@@ -32,6 +35,8 @@ public class FurnitureMenuValues : MonoBehaviour
         tableToggle.isOn = table;
         couchToggle.isOn = couch;
         chairSlider.value = (int) numOfChairs;
+        lightSlider.value = lightLevel;
+        lightTextValue.text = lightLevel.ToString();
     }
 
     void Start()
@@ -46,7 +51,8 @@ public class FurnitureMenuValues : MonoBehaviour
         table = tableToggle.isOn;
         couch = couchToggle.isOn;
         numOfChairs = (int) chairSlider.value;
-        Debug.Log("number of chairs: " + numOfChairs);
+        lightLevel = lightSlider.value;
+        Debug.Log("light level: " + lightLevel);
     }
 
     public int GetNumberOfChairs()

@@ -11,12 +11,17 @@ public class SetScale : MonoBehaviour
     // Start is called before the first frame update
     // Use for reference of walls!
     [SerializeField] public GameObject roomCube; 
+    [SerializeField] public GameObject floresentLight1; 
+    [SerializeField] public GameObject floresentLight2; 
+    [SerializeField] public GameObject floresentLight3; 
+    [SerializeField] public GameObject floresentLight4;
 
     void Awake()
     {
         //Temporary Manual Control over the room dimensions!
         float roomLength = FurnitureMenuValues.length;
         float roomWidth = FurnitureMenuValues.width;
+        float roomLighting = FurnitureMenuValues.lightLevel;
 
         // Set default minimum
         if (roomLength < 9)
@@ -51,5 +56,11 @@ public class SetScale : MonoBehaviour
             roomCube.transform.localScale.x, 
             roomCube.transform.localScale.y, 
             roomCube.transform.localScale.z * widthSizeMultFactor);
+
+        // Lighting Change
+        floresentLight1.GetComponent<Light>().intensity = roomLighting;
+        floresentLight2.GetComponent<Light>().intensity = roomLighting;
+        floresentLight3.GetComponent<Light>().intensity = roomLighting;
+        floresentLight4.GetComponent<Light>().intensity = roomLighting;
     }
 }
