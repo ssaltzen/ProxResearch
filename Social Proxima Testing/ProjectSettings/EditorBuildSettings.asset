@@ -20,4 +20,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/DynamicScene.unity
     guid: 19033e21aa13d4e4a8475295cde9649f
-  m_configObjects: {}
+  m_configObjects:
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: bae39a76599a6e04db9f77f187afc4b4, type: 2}
+    com.unity.xr.openxr.settings4: {fileID: 11400000, guid: de85609880aa8aa4f8899a0ec0177ef0, type: 2}
