@@ -2594,14 +2594,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1814509613730285639, guid: 0d6262039e606c04982ce61d470464b0, type: 3}
-      propertyPath: followSpeed
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1814509613730285639, guid: 0d6262039e606c04982ce61d470464b0, type: 3}
-      propertyPath: maxHeadTurn
-      value: 60
-      objectReference: {fileID: 0}
-    - target: {fileID: 1814509613730285639, guid: 0d6262039e606c04982ce61d470464b0, type: 3}
       propertyPath: objectTracking
       value: 
       objectReference: {fileID: 736373419}

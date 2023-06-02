@@ -12,6 +12,10 @@ public class FaceTracking : MonoBehaviour
     private float maxHeadTurn;
 
     [SerializeField]
+    [Min(0f)]
+    private float maxTrackDistance;
+
+    [SerializeField]
     private Transform headBone;
 
     [SerializeField]
@@ -23,8 +27,8 @@ public class FaceTracking : MonoBehaviour
 
     void LateUpdate()
     {
-        // Do nothing if there is no object
-        if (!objectTracking)
+        // Do nothing if there is no object or if the object is too far away
+        if (!objectTracking || Vector3.Distance(objectTracking.transform.position, headBone.position) > maxTrackDistance)
         {
             ReturnHead();
             return;
