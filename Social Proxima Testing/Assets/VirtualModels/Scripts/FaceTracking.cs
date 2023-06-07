@@ -80,4 +80,9 @@ public class FaceTracking : MonoBehaviour
         return Vector3.Normalize(difference);
     }
 
+    public void SetObjectTracking(Transform objectTracking)
+    {
+        this.objectTracking = objectTracking;
+    }
+
 }
