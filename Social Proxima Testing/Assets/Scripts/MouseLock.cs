@@ -8,26 +8,6 @@ public class MouseLock : MonoBehaviour
         LockMouse();
     }
 
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            isLocked = !isLocked;
-            if (isLocked)
-            {
-                LockMouse();
-            }
-            else
-            {
-                UnlockMouse();
-            }
-        }
-        if (isLocked)
-        {
-            UpdateMousePosition();
-        }
-    }
-
     void LockMouse()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -44,5 +24,23 @@ public class MouseLock : MonoBehaviour
         float x = Screen.width / 2f;
         float y = Screen.height / 2f;
         Cursor.SetCursor(null, new Vector2(x, y), CursorMode.Auto);
+    }
+
+    public void UpdateMouseState()
+    {
+        isLocked = !isLocked;
+        if (isLocked)
+        {
+            LockMouse();
+        }
+        else
+        {
+            UnlockMouse();
+        }
+        
+        if (isLocked)
+        {
+            UpdateMousePosition();
+        }
     }
 }
