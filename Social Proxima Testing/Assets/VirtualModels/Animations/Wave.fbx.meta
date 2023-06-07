@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 94d921336b992524f9c3bf10e8bb1f55
+guid: 79288d182390e454bba1e836e7045f5d
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -17,14 +17,7 @@ ModelImporter:
     removeConstantScaleCurves: 0
     motionNodeName: 
     rigImportErrors: 
-    rigImportWarnings: "Copied Avatar Rig Configuration mis-match. Bone length in
-      copied configuration does not match position in animation file:\n\t'mixamorig:LeftUpLeg'
-      : position error = 25.839680 mm\n\t'mixamorig:LeftLeg' : position error = 39.576492
-      mm\n\t'mixamorig:LeftFoot' : position error = 10.593062 mm\n\t'mixamorig:LeftToeBase'
-      : position error = 9.312468 mm\n\t'mixamorig:RightUpLeg' : position error =
-      26.982428 mm\n\t'mixamorig:RightLeg' : position error = 39.590816 mm\n\t'mixamorig:RightFoot'
-      : position error = 10.642471 mm\n\t'mixamorig:RightToeBase' : position error
-      = 9.048489 mm\n"
+    rigImportWarnings: 
     animationImportErrors: 
     animationImportWarnings: 
     animationRetargetingWarnings: 
@@ -40,11 +33,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Sitting
+      name: Wave
       takeName: mixamo.com
       internalID: -203655887218126122
       firstFrame: 0
-      lastFrame: 168
+      lastFrame: 71
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -57,9 +50,9 @@ ModelImporter:
       loopBlendPositionY: 0
       loopBlendPositionXZ: 0
       keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
+      keepOriginalPositionY: 0
       keepOriginalPositionXZ: 0
-      heightFromFeet: 0
+      heightFromFeet: 1
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
