@@ -59,7 +59,7 @@ namespace Proxemics
             animator.SetFloat("Horizontal", moveDirection.x * (moveDirection.y >= 0 ? 1 : -1));
             animator.SetFloat("Vertical", moveDirection.y);
 
-            animator.SetBool("Moving", (moveDirection.magnitude > 0) || (controller.velocity.magnitude > 0));
+            animator.SetBool("Moving", (moveDirection.magnitude > 0));
         }
 
         // From Player Input component.

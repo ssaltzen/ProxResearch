@@ -7,7 +7,7 @@ public class PauseToMain : MonoBehaviour
 {
     void Update()
     {
-        if (Input.GetKey(KeyCode.P))
+        if (Input.GetKey(KeyCode.Escape))
         {
             var index = SceneManager.GetActiveScene().buildIndex + 1;
             index %= 2;
