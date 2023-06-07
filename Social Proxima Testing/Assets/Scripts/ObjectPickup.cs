@@ -7,8 +7,9 @@ public class ObjectPickup : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E) && MainMenu.pickUp)
         {
+            Debug.Log("E Pressed.");
             if (pickedObject == null)
             {
                 PickupObject();
@@ -30,6 +31,7 @@ public class ObjectPickup : MonoBehaviour
         {
             if (hit.collider.CompareTag("Interactable"))
             {
+                Debug.Log("Hit");
                 // Store a reference to the picked object
                 pickedObject = hit.collider.gameObject;
 
