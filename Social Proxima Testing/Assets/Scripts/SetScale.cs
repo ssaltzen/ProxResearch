@@ -9,55 +9,58 @@ public class SetScale : MonoBehaviour
     // For Front and Back Wall, change Z Axis. 
 
     // Start is called before the first frame update
-    [SerializeField] public GameObject leftWall;
-    [SerializeField] public GameObject rightWall;
-    [SerializeField] public GameObject frontWall;
-    [SerializeField] public GameObject backWall;
     // Use for reference of walls!
-    [SerializeField] public GameObject center; 
+    [SerializeField] public GameObject roomCube; 
+    [SerializeField] public GameObject floresentLight1; 
+    [SerializeField] public GameObject floresentLight2; 
+    [SerializeField] public GameObject floresentLight3; 
+    [SerializeField] public GameObject floresentLight4;
 
     void Awake()
     {
-        //leftWall.transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z)
-        Debug.Log(leftWall.transform.localScale.x);
-        Debug.Log(RoomSpecs.length);
-        float roomLength = RoomSpecs.length;
-        float roomWidth = RoomSpecs.width;
+        //Temporary Manual Control over the room dimensions!
+        float roomLength = FurnitureMenuValues.length;
+        float roomWidth = FurnitureMenuValues.width;
+        float roomLighting = FurnitureMenuValues.lightLevel;
+
+        // Set default minimum
+        if (roomLength < 9)
+        {
+            roomLength = 9.0f;
+        }
+        if (roomWidth < 9)
+        {
+            roomWidth = 9.0f;
+        }
+
+        // Length and width is in a scale from 9 to 30. 21 total sizes possible.
+        roomLength = roomLength - 9;
+        roomWidth = roomWidth - 9;
+
+        float ratioOfLengthChange = roomLength / 21.0f;
+        float ratioOfWidthChange = roomWidth / 21.0f;
+
+        // Scale can at max double the size of the room (scale of a 1 to 2 multiplier for size).
+        // If length selected is 9, scale is multiplied be factor of 0 + 1 = 1.
+        // If length is 30, scale multiplication factor is 1 + 1 = 2.
+        float lengthSizeMultFactor = ratioOfLengthChange + 1;
+        float widthSizeMultFactor = ratioOfWidthChange + 1;
 
         // Change Wall Size
-        leftWall.transform.localScale = new Vector3(
-            roomLength * 2, 
-            leftWall.transform.localScale.y, 
-            leftWall.transform.localScale.z);
-        rightWall.transform.localScale = new Vector3(
-            roomLength * 2,
-            rightWall.transform.localScale.y, 
-            rightWall.transform.localScale.z);
-        frontWall.transform.localScale = new Vector3(
-            roomWidth * 2,
-            frontWall.transform.localScale.y,
-            frontWall.transform.localScale.z);
-        backWall.transform.localScale = new Vector3(
-            roomWidth * 2,
-            backWall.transform.localScale.y,
-            backWall.transform.localScale.z);
+        roomCube.transform.localScale = new Vector3(
+            roomCube.transform.localScale.x * lengthSizeMultFactor, 
+            roomCube.transform.localScale.y, 
+            roomCube.transform.localScale.z);
 
-        // Change Positions of Walls Accordingly.
-        leftWall.transform.position = new Vector3(
-            center.transform.position.x - roomWidth,
-            center.transform.position.y,
-            center.transform.position.z);
-        rightWall.transform.position = new Vector3(
-            center.transform.position.x + roomWidth,
-            center.transform.position.y,
-            center.transform.position.z);
-        frontWall.transform.position = new Vector3(
-            center.transform.position.x,
-            center.transform.position.y,
-            center.transform.position.z + roomLength);
-        backWall.transform.position = new Vector3(
-            center.transform.position.x,
-            center.transform.position.y,
-            center.transform.position.z - roomLength);
+        roomCube.transform.localScale = new Vector3(
+            roomCube.transform.localScale.x, 
+            roomCube.transform.localScale.y, 
+            roomCube.transform.localScale.z * widthSizeMultFactor);
+
+        // Lighting Change
+        floresentLight1.GetComponent<Light>().intensity = roomLighting;
+        floresentLight2.GetComponent<Light>().intensity = roomLighting;
+        floresentLight3.GetComponent<Light>().intensity = roomLighting;
+        floresentLight4.GetComponent<Light>().intensity = roomLighting;
     }
 }

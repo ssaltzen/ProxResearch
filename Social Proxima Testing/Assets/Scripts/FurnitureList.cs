@@ -14,6 +14,8 @@ public class FurnitureList : MonoBehaviour
     [SerializeField] private GameObject chair6;
     [SerializeField] private GameObject chair7;
     [SerializeField] private GameObject chair8;
+
+    int numbOfChairs;
     //[SerializeField] private GameObject sofa;
 
 
@@ -43,15 +45,21 @@ public class FurnitureList : MonoBehaviour
         //furnitureList.Add(sofa);
         //      Set items to actual list we want
 
+        // TODO: Need to find how to call this at end of Main Menu Scene
+        SetInstantiableItems();
+
     }
 
-    private void SetInstantiableItems()
+    public void SetInstantiableItems()
     {
         // TODO: Eventually add something from menu setting only furniture items selected
         //      to be in instantiateFurnitureList
 
-        bool isTableSpawned = true;//GetComponent<RoomSpecs>().GetIfTableSpawns();
-        int numOfChairs = 8;//GetComponent<RoomSpecs>().GetNumOfChairs();
+        // Temporary Controls over the number and type of furniture that spawns in...
+        bool isTableSpawned = FurnitureMenuValues.table;//GetComponent<RoomSpecs>().GetIfTableSpawns();
+        int numOfChairs = FurnitureMenuValues.numOfChairs;
+
+        //Debug.Log(FurnitureMenuValues.length);
 
         // Choose to spawn in table or not.
         if (isTableSpawned == false)
@@ -67,15 +75,16 @@ public class FurnitureList : MonoBehaviour
         // Add in correct number of chairs
         for (var i = 0; i < numOfChairs; i++)
         {
-            Debug.Log(i);
+            Debug.Log(i + ": " + furnitureList[i]);
             this.instantiateFurnitureList.Add(furnitureList[i]);
         }
+
+        //Debug.Log(furnitureValues);
         
     }
 
     public List<GameObject> GetFurnitureList()
     {
-        SetInstantiableItems(); // TODO: this is incorrect. Somehow lock this until menu selection is done
         Debug.Log(this.instantiateFurnitureList);
         return instantiateFurnitureList;
     }
@@ -83,6 +92,11 @@ public class FurnitureList : MonoBehaviour
     public void SetFurnitureList(List<GameObject> newList)
     {
         this.instantiateFurnitureList = newList;
+    }
+
+    public void SetNumberOfChairs(int newNumber)
+    {
+        numbOfChairs = newNumber;
     }
 
     // Update is called once per frame

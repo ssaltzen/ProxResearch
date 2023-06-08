@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
-using UnityEngine.EventSystems;
 
 namespace Proxemics
 {
@@ -11,8 +10,8 @@ namespace Proxemics
         private CharacterController controller;
         private Vector3 playerVelocity;
         private bool groundedPlayer;
-        private bool pointerOverUI;
-        private GameObject gameController; 
+        private ObjectPickup objectPickup;
+        private MouseLock mouseLock;
         
         [SerializeField] private float playerSpeed = 10.0f;
         [SerializeField] private float jumpHeight = 1.0f;
@@ -24,16 +23,15 @@ namespace Proxemics
         private void Start()
         {
             controller = gameObject.GetComponent<CharacterController>();
+            objectPickup = gameObject.GetComponent<ObjectPickup>();
+            mouseLock = gameObject.GetComponent<MouseLock>();
             cameraTransform = FindObjectOfType<Camera>().gameObject.transform;
-            gameController = GameObject.Find("GameController");
         }
 
         private void Update()
         {
             Move();
             Animate();
-            pointerOverUI = EventSystem.current.IsPointerOverGameObject();
-            Debug.Log(pointerOverUI);
         }
 
         private void Move()
@@ -66,18 +64,13 @@ namespace Proxemics
             animator.SetFloat("Horizontal", moveDirection.x * (moveDirection.y >= 0 ? 1 : -1));
             animator.SetFloat("Vertical", moveDirection.y);
 
-            animator.SetBool("Moving", (moveDirection.magnitude > 0) || (controller.velocity.magnitude > 0));
+            animator.SetBool("Moving", (moveDirection.magnitude > 0));
         }
 
         // From Player Input component.
         private void OnMove(InputValue value)
         {
             moveDirection = value.Get<Vector2>();
-        }
-
-        private void OnLook(InputValue value)
-        {
-            // ???
         }
 
         // From Player Input component.
@@ -96,14 +89,15 @@ namespace Proxemics
 
         private void OnPause()
         {
-            var index = SceneManager.GetActiveScene().buildIndex + 1;
-            index %= 2;
-            SceneManager.LoadScene(index);
+            mouseLock.UpdateMouseState();
+            /* var index = SceneManager.GetActiveScene().buildIndex + 1;
+            index %= 2; */
+            SceneManager.LoadScene(0);
         }
 
-        private void OnSpawnFurniture()
+        private void OnGrab()
         {
-            gameController.GetComponent<SpawnFurniture>().CreateFurniture();
+            objectPickup.PickupCheck();
         }
     }
 }

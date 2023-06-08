@@ -19,32 +19,33 @@ public class SpawnFurniture : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         // Throttle the spawn rate of furniture item
         throttleCounter += Time.deltaTime;
-    }
-
-    public void CreateFurniture()
-    {
-        furnitureComponent = GetComponent<FurnitureList>();
-        furniture = furnitureComponent.GetFurnitureList();
-        Debug.Log("Furniture available... " + furniture);
-        if (throttleCounter >= throttle)
-        {
-            
-            if (furniture.Count != 0)
+        
+        //if (Input.GetKey(KeyCode.UpArrow))
+        //{
+            furnitureComponent = GetComponent<FurnitureList>();
+            furniture = furnitureComponent.GetFurnitureList();
+            Debug.Log("Furniture available... " + furniture);
+            if (throttleCounter >= throttle)
             {
-                Debug.Log("Spawning... " + furniture);
-                Instantiate(furniture[0]);
-                furniture.RemoveAt(0);
-                furnitureComponent.SetFurnitureList(furniture);
-                furniture = furnitureComponent.GetFurnitureList();
+                
+                if (furniture.Count != 0)
+                {
+                    Debug.Log("Spawning... " + furniture);
+                    Instantiate(furniture[0]);
+                    furniture.RemoveAt(0);
+                    furnitureComponent.SetFurnitureList(furniture);
+                    furniture = furnitureComponent.GetFurnitureList();
+                }
+                else
+                {
+                    Debug.Log("No Furniture Left to Spawn in List!");
+                }
+                throttle = 0.1f;
+                throttleCounter = 0.0f;
             }
-            else
-            {
-                Debug.Log("No Furniture Left to Spawn in List!");
-            }
-            throttle = 0.5f;
-            throttleCounter = 0.0f;
-        }
+        //}
     }
 }
