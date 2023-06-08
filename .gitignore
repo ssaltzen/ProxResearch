@@ -73,6 +73,8 @@ Temporary Items
 # Visual Studio cache directory
 .vs*
 .vsconfig*
+.vscode/
+.vsconfig
 
 # Gradle cache directory
 .gradle/

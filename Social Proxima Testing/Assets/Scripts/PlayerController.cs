@@ -11,7 +11,7 @@ namespace Proxemics
         private Vector3 playerVelocity;
         private bool groundedPlayer;
         private ObjectPickup objectPickup;
-        private MouseLock mouseLock;
+        //private MouseLock mouseLock;
         
         [SerializeField] private float playerSpeed = 10.0f;
         [SerializeField] private float jumpHeight = 1.0f;
@@ -24,7 +24,7 @@ namespace Proxemics
         {
             controller = gameObject.GetComponent<CharacterController>();
             objectPickup = gameObject.GetComponent<ObjectPickup>();
-            mouseLock = gameObject.GetComponent<MouseLock>();
+            //mouseLock = gameObject.GetComponent<MouseLock>();
             cameraTransform = FindObjectOfType<Camera>().gameObject.transform;
         }
 
@@ -89,7 +89,7 @@ namespace Proxemics
 
         private void OnPause()
         {
-            mouseLock.UpdateMouseState();
+            //mouseLock.UpdateMouseState();
             /* var index = SceneManager.GetActiveScene().buildIndex + 1;
             index %= 2; */
             SceneManager.LoadScene(0);

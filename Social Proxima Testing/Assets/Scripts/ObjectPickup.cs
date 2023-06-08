@@ -8,7 +8,7 @@ public class ObjectPickup : MonoBehaviour
     private void PickupObject()
     {
         // Perform a raycast to detect an interactable object
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
         RaycastHit hit;
 
         if (Physics.Raycast(ray, out hit))
