@@ -30,7 +30,8 @@ public class MainMenu : MonoBehaviour
     public void Reset()
     {
         // Essentially, we just reload the scene, so stats reset.
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        // SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        InteractableData.reset = true;
         Debug.Log("Reset");
     }
 }
