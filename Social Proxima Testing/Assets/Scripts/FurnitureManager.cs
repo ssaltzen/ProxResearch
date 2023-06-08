@@ -2,6 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/**
+    NO LONGER IN USE!
+    InteractableData.cs has the same functionality. 
+    Differences:
+    - No need for [SerializeField] items.
+**/
 public class FurnitureManager : MonoBehaviour
 {
     [SerializeField] public GameObject couch;
@@ -17,23 +23,18 @@ public class FurnitureManager : MonoBehaviour
     public static bool reset = false;
 
 
-    // ID to GameObject.
-    // Maybe store ID's as a tuple?
-    // Is there a way to get the gameobject from the ID?
-    private static Dictionary<int, GameObject> ids =
-        new Dictionary<int, GameObject>();
-    // ID to TransformData. 
+    // Maps names to TransformData. 
     //private static Dictionary<int, Transform> transforms =
     //    new Dictionary<int, Transform>();
-    private static Dictionary<int, Vector3> positions =
-        new Dictionary<int, Vector3>();
-    private static Dictionary<int, Quaternion> rotations =
-        new Dictionary<int, Quaternion>();
-    private static Dictionary<int, Vector3> localScales =
-        new Dictionary<int, Vector3>();
+    private static Dictionary<string, Vector3> positions =
+        new Dictionary<string, Vector3>();
+    private static Dictionary<string, Quaternion> rotations =
+        new Dictionary<string, Quaternion>();
+    private static Dictionary<string, Vector3> localScales =
+        new Dictionary<string, Vector3>();
     private float throttle = 0.0f;
     private float throttleCounter = 0.0f;
-
+    public GameObject[] furnitureList;
 
     // Start is called before the first frame update
     void Start()
@@ -45,37 +46,28 @@ public class FurnitureManager : MonoBehaviour
         SetChairs(chairCount);
 
         // Getting the right positions before scene start.
-        List<GameObject> furniture = new List<GameObject>()
-        {
-            couch, table, chair1, chair2, chair3, 
-            chair4, chair5, chair6, chair7, chair8
-        };
+        furnitureList = GameObject.FindGameObjectsWithTag("Interactable");
         // Provide the correct transform data IF reset == false;
         if (!reset)
         {
-            for (int i = 0; i < furniture.Count; i++)
+            foreach (GameObject item in furnitureList)
             {
-                var id = furniture[i].GetInstanceID();
-                Debug.Log(furniture[i].name + ": " + id);
-                Debug.Log("Real couch" + couch.GetInstanceID());
-                if (!ids.ContainsKey(id))
+                var itemName = item.name;
+                Debug.Log("Item Name:" + item.name);
+                if (!positions.ContainsKey(itemName))
                 {
-                    ids[id] = furniture[i];
-                    // Store position in corresponding dictionaries.
-                    positions[id] = furniture[i].transform.position;
-                    rotations[id] = furniture[i].transform.rotation;
-                    localScales[id] = furniture[i].transform.localScale;
+                    positions[itemName] = item.transform.position;
+                    rotations[itemName] = item.transform.rotation;
+                    localScales[itemName] = item.transform.localScale;
                 }
                 // Update object's transform.
-                ids[id].transform.position = positions[id];
-                ids[id].transform.rotation = rotations[id];
-                ids[id].transform.localScale = localScales[id];
+                item.transform.position = positions[itemName];
+                item.transform.rotation = rotations[itemName];
+                item.transform.localScale = localScales[itemName];
             }
         }
         else
         {
-            ids = new Dictionary<int, GameObject>();
-            //transforms.Clear();
             positions.Clear();
             rotations.Clear();
             localScales.Clear();
@@ -86,13 +78,14 @@ public class FurnitureManager : MonoBehaviour
     void Update()
     {
         throttleCounter += Time.deltaTime;
-        if (throttleCounter >= throttle) 
+        if (throttleCounter >= throttle)
         {
-            foreach (KeyValuePair<int, GameObject> kvp in ids)
+            foreach (GameObject item in furnitureList)
             {
-                positions[kvp.Key] = kvp.Value.transform.position;
-                rotations[kvp.Key] = kvp.Value.transform.rotation;
-                localScales[kvp.Key] = kvp.Value.transform.localScale;
+                var itemName = item.name;
+                positions[itemName] = item.transform.position;
+                rotations[itemName] = item.transform.rotation;
+                localScales[itemName] = item.transform.localScale;
             }
             Debug.Log("Updated Transforms");
             throttle = 0.1f;
