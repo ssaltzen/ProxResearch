@@ -20,18 +20,75 @@ namespace Proxemics
         private Vector2 moveDirection;
         private Transform cameraTransform;
 
-        private void Start()
+        private PlayerControls playerControls;
+        private InputAction moveAction;
+        private InputAction lookAction;
+        private InputAction fireAction;
+        private InputAction jumpAction;
+        private InputAction pauseAction;
+        private InputAction grabAction;
+
+        private void Awake()
         {
             controller = gameObject.GetComponent<CharacterController>();
             objectPickup = gameObject.GetComponent<ObjectPickup>();
             //mouseLock = gameObject.GetComponent<MouseLock>();
             cameraTransform = FindObjectOfType<Camera>().gameObject.transform;
+            playerControls = new PlayerControls();
+        }
+        
+        private void OnEnable()
+        {
+            // All movement binds.
+            moveAction = playerControls.Player.Move;
+            lookAction = playerControls.Player.Look;
+
+            // All unique action binds.
+            fireAction = playerControls.Player.Fire;
+            fireAction.performed += Fire;
+            jumpAction = playerControls.Player.Jump;
+            jumpAction.performed += Jump;
+            pauseAction = playerControls.Player.Pause;
+            pauseAction.performed += Pause;
+            grabAction = playerControls.Player.Grab;
+
+            // Enable all commands selectively.
+            moveAction.Enable();
+            lookAction.Enable();
+            fireAction.Enable();
+            jumpAction.Enable();
+            pauseAction.Enable();
+            if (MainMenu.pickUp)
+            {
+                grabAction.Enable();
+            }
+        }
+
+        private void OnDisable() 
+        {
+            // Simply disable all of the previously bound binds.
+            moveAction.Disable();
+            lookAction.Disable();
+            fireAction.Disable();
+            jumpAction.Disable();
+            pauseAction.Disable();
+            grabAction.Disable();
+        }
+
+        private void FixedUpdate()
+        {
+            Move();
+            Animate();
+
+            if (grabAction.triggered)
+            {
+                objectPickup.PickupCheck();
+            }
         }
 
         private void Update()
         {
-            Move();
-            Animate();
+            moveDirection = moveAction.ReadValue<Vector2>();
         }
 
         private void Move()
@@ -68,13 +125,7 @@ namespace Proxemics
         }
 
         // From Player Input component.
-        private void OnMove(InputValue value)
-        {
-            moveDirection = value.Get<Vector2>();
-        }
-
-        // From Player Input component.
-        private void OnJump()
+        private void Jump(InputAction.CallbackContext context)
         {
             if (groundedPlayer)
             {
@@ -82,22 +133,17 @@ namespace Proxemics
             }
         }
 
-        private void OnFire()
+        private void Fire(InputAction.CallbackContext context)
         {
             animator.SetTrigger("Social");
         }
 
-        private void OnPause()
+        private void Pause(InputAction.CallbackContext context)
         {
-            //mouseLock.UpdateMouseState();
+            // mouseLock.UpdateMouseState();
             /* var index = SceneManager.GetActiveScene().buildIndex + 1;
             index %= 2; */
             SceneManager.LoadScene(0);
-        }
-
-        private void OnGrab()
-        {
-            objectPickup.PickupCheck();
         }
     }
 }

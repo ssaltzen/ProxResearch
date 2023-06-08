@@ -7,7 +7,7 @@
             "actions": [
                 {
                     "name": "Move",
-                    "type": "Value",
+                    "type": "PassThrough",
                     "id": "21c5aab2-8001-4aea-980a-1ca15523ecf6",
                     "expectedControlType": "Vector2",
                     "processors": "",
@@ -16,7 +16,7 @@
                 },
                 {
                     "name": "Look",
-                    "type": "Value",
+                    "type": "PassThrough",
                     "id": "19bc60ea-c384-4ab3-b083-15980df7d83e",
                     "expectedControlType": "Vector2",
                     "processors": "",
@@ -25,7 +25,7 @@
                 },
                 {
                     "name": "Fire",
-                    "type": "Button",
+                    "type": "PassThrough",
                     "id": "58f68c88-9302-4851-89e1-3e04856e7ded",
                     "expectedControlType": "Button",
                     "processors": "",
@@ -34,7 +34,7 @@
                 },
                 {
                     "name": "Jump",
-                    "type": "Button",
+                    "type": "PassThrough",
                     "id": "9ef4e094-fa0a-4371-9585-66e7ad04a8bf",
                     "expectedControlType": "Button",
                     "processors": "",
@@ -43,7 +43,7 @@
                 },
                 {
                     "name": "Pause",
-                    "type": "Button",
+                    "type": "PassThrough",
                     "id": "d53f6a3c-bf79-4c39-acb9-c30f95341d72",
                     "expectedControlType": "Button",
                     "processors": "",
@@ -52,7 +52,7 @@
                 },
                 {
                     "name": "Grab",
-                    "type": "Button",
+                    "type": "PassThrough",
                     "id": "6ef8fa6e-0c08-43ce-8fd1-2cb635cd409a",
                     "expectedControlType": "Button",
                     "processors": "",
@@ -118,11 +118,11 @@
                 },
                 {
                     "name": "",
-                    "id": "49ab6b86-6608-476f-8810-ba6ab3c82d9b",
+                    "id": "75f7d327-4f11-416d-a242-1b8d698f3e01",
                     "path": "<Gamepad>/leftTrigger",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Touch;Gamepad",
+                    "groups": "Gamepad;Touch",
                     "action": "Grab",
                     "isComposite": false,
                     "isPartOfComposite": false
