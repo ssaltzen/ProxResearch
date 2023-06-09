@@ -13,8 +13,9 @@ public class SetScale : MonoBehaviour
     [SerializeField] public GameObject roomCube; 
     [SerializeField] public GameObject floresentLight1; 
     [SerializeField] public GameObject floresentLight2; 
-    [SerializeField] public GameObject floresentLight3; 
+    [SerializeField] public GameObject floresentLight3;
     [SerializeField] public GameObject floresentLight4;
+    [SerializeField] private GameObject vrFloor;
 
     void Awake()
     {
@@ -34,11 +35,11 @@ public class SetScale : MonoBehaviour
         }
 
         // Length and width is in a scale from 9 to 30. 21 total sizes possible.
-        roomLength = roomLength - 9;
-        roomWidth = roomWidth - 9;
+        //roomLength = roomLength - 9;
+        //roomWidth = roomWidth - 9;
 
-        float ratioOfLengthChange = roomLength / 21.0f;
-        float ratioOfWidthChange = roomWidth / 21.0f;
+        float ratioOfLengthChange = (roomLength - 9) / 21.0f;
+        float ratioOfWidthChange = (roomWidth - 9) / 21.0f;
 
         // Scale can at max double the size of the room (scale of a 1 to 2 multiplier for size).
         // If length selected is 9, scale is multiplied be factor of 0 + 1 = 1.
@@ -62,5 +63,16 @@ public class SetScale : MonoBehaviour
         floresentLight2.GetComponent<Light>().intensity = roomLighting;
         floresentLight3.GetComponent<Light>().intensity = roomLighting;
         floresentLight4.GetComponent<Light>().intensity = roomLighting;
+
+        // Update size of VR floor to match the room.
+        var newFloorPosition = vrFloor.transform.position;
+        newFloorPosition.x = roomCube.transform.position.x + (roomLength / 2);
+        newFloorPosition.z = roomCube.transform.position.z + (roomWidth / 2);
+        vrFloor.transform.position = newFloorPosition;
+
+        var newFloorScale = vrFloor.transform.localScale;
+        newFloorScale.x = roomLength / 10;
+        newFloorScale.z = roomLength / 10;
+        vrFloor.transform.localScale = newFloorScale;
     }
 }
