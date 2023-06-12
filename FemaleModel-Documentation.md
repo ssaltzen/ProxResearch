@@ -35,7 +35,6 @@ Virtual character models are humanoid models designed for user interaction in a 
 Initially, my plan was to acquire a premade character model and add animations using Mixamo. However, due to Mixamo.com's file format restrictions (accepting only fbx, obj, and zip), I extensively searched for a suitable model that would seamlessly integrate with the platform. Eventually, I discovered "Female Model #0" on sketchfab.com, a pre-made humanoid model complete with bones. I proceeded to create a range of animations including sit, sit talking, walk, run, and waving, further enhancing the character's versatility and lifelike movements.
 
 Here is the screenshot of the character in Mixamo.com:
-
 ![female#0MixamoUpload](https://github.com/ssaltzen/ProxResearch/assets/115097655/c5ab4f53-cd39-4aaf-b8b9-30e1b3d79537)
 ![female#0Mixamo](https://github.com/ssaltzen/ProxResearch/assets/115097655/8529b932-8278-450f-93bb-935c882ed43a)
 
@@ -71,25 +70,23 @@ After individual meeting with Siena, I decided to create a 3D model from scratch
 I following the [tutoring video](https://www.bilibili.com/video/BV1J24y1z7GC/?spm_id_from=333.880.my_history.page.click&vd_source=eac0914bfe8c5470c96b9f441ab50f36) of C4D Personalized Cartoon Character. 
 
 I first start with the character body, and create a cylinder to start with. changed the properties and lining format to better build on it.
-图片
-Secondly, I reshape the cylinder, by squeeze its width to let haev a back and front of body. Then choose the top right area to cut and pull out the shoulder 
-图片
-Thrid, I delete the body's bottom surface and recreate a surface where the tight will connect to. Then adjust the body's outer edge to make it have a waist. 
-图片
-Until here, I only did the right side of the body. Since we know hunman body is symmetry, therefore I can just delete the left half and create a symmetry copy of the right side body and connect them together to have the full body.
+![Screenshot (584)](https://github.com/ssaltzen/ProxResearch/assets/115097655/992995b5-cbc5-4f3e-9cef-4f826915acb6)
 
+Secondly, I reshape the cylinder, by squeeze its width to let haev a back and front of body. Then choose the top right area to cut and pull out the shoulder 
+![Screenshot (588)](https://github.com/ssaltzen/ProxResearch/assets/115097655/28545a5c-c14f-484c-94a5-bba3faf6f047)
+
+Thrid, I delete the body's bottom surface and recreate a surface where the tight will connect to. Then adjust the body's outer edge to make it have a waist. 
+![Screenshot (591)](https://github.com/ssaltzen/ProxResearch/assets/115097655/281ae4c3-23b4-433f-877d-b4a67bf6f8e4)
+
+Until here, I only did the right side of the body. Since we know hunman body is symmetry, therefore I can just delete the left half and create a symmetry copy of the right side body and connect them together to have the full body.
 ![Screenshot (576)](https://github.com/ssaltzen/ProxResearch/assets/115097655/ef011361-8d82-45ce-acce-8498407ccdf6)
 
-
 Then, I want to cut the top layer of the body to draw a circle and pull it out to have the neck. However, I am facing some trouble that it won't let me correctly cut the top platform, so I am currently stuck right here.
-
 ![Screenshot (577)](https://github.com/ssaltzen/ProxResearch/assets/115097655/52514b54-77e3-4ca6-8f1d-a5e1b6883bbd)
-
 
 
 ## Testing ##
 We build and run the female character model on unity to test its animation. After first round of testing, I send the female character model to AR team to let them test and build. We received some feedback about the model's size, however afterward they noticed that they can adjust the size, so problem solved. 
-
 ![9815f115cf3bb4459c24dded5d984a5f (1)](https://github.com/ssaltzen/ProxResearch/assets/115097655/d020d3a6-bbf3-43da-9cfd-6a03a235b40e)
 
 
