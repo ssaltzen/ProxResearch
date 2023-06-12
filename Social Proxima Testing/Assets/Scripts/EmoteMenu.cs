@@ -58,6 +58,8 @@ public class EmoteMenu : MonoBehaviour
                 rawMousePosition.x - Screen.width / 2f, 
                 rawMousePosition.y - Screen.height / 2f
             );
+            // For other ports, track the position of a cursor or the player's finger
+            // With the center of the screen being 0,0
 
             iconDistances.Clear();
             foreach (var emote in emoteEntries)
@@ -79,6 +81,9 @@ public class EmoteMenu : MonoBehaviour
             Open();
             selectingEmote = true;
             textObject.SetActive(true);
+            
+            // For other ports, have a way for the player to stop being able to look around
+            // and for a cursor to appear on the screen if not using touchscreen
             mouseLock.UpdateMouseState();
         } 
         else if (context.canceled)
