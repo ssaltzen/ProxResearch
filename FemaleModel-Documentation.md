@@ -18,8 +18,7 @@ Virtual character models are humanoid models designed for user interaction in a 
 
 ### Female Humanoid Models:
  - Female Model #0 : Initial fbx format female model from sketchfab.com.
-![](https://hackmd.io/_uploads/r1geJNQD2.png)
-
+![female#0Unity](https://github.com/ssaltzen/ProxResearch/assets/115097655/1e62283d-d7c2-401a-9430-dd2b76a428c3)
 
  - [Female Model #1](https://github.com/ssaltzen/ProxResearch/tree/8232085f0ba5a2be95de3a856e5253bf874deeec/Social%20Proxima%20Testing/Assets/VirtualModels/Models) : After team deliberation, we've opted for a uniform character style to enhance immersion. The characters will be available in the fbx format for seamless integration. Prepare for an immersive experience that transcends reality.
 ![](https://hackmd.io/_uploads/HyGZkEQP3.png)
