@@ -21,12 +21,10 @@ Virtual character models are humanoid models designed for user interaction in a 
 ![female#0Unity](https://github.com/ssaltzen/ProxResearch/assets/115097655/1e62283d-d7c2-401a-9430-dd2b76a428c3)
 
  - [Female Model #1](https://github.com/ssaltzen/ProxResearch/tree/8232085f0ba5a2be95de3a856e5253bf874deeec/Social%20Proxima%20Testing/Assets/VirtualModels/Models) : After team deliberation, we've opted for a uniform character style to enhance immersion. The characters will be available in the fbx format for seamless integration. Prepare for an immersive experience that transcends reality.
-![](https://hackmd.io/_uploads/HyGZkEQP3.png)
-
+![female#1Unity](https://github.com/ssaltzen/ProxResearch/assets/115097655/e6fc6590-455e-466a-86f9-2eedcc50160e)
 
  - Extra Female Model: Build a female model from scratch using C4D(in process).
-![](https://hackmd.io/_uploads/rk4GyNmw3.png)
-
+![ExtraModelinProgressError](https://github.com/ssaltzen/ProxResearch/assets/115097655/4b496297-fa6b-43b1-bc07-7c6d8f8e577e)
 
 
 ## Female Models Build Process ##
