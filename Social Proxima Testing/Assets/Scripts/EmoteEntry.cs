@@ -16,7 +16,7 @@ public class EmoteEntry : MonoBehaviour
     {
         icon.texture = pIcon;
         this.emoteName = emoteName;
-        setScale(initialScale);
+        SetScale(initialScale);
     }
 
     public string getEmoteName()
@@ -24,7 +24,7 @@ public class EmoteEntry : MonoBehaviour
         return emoteName;
     }
 
-    public void setScale(float value)
+    public void SetScale(float value)
     {
         gameObject.transform.localScale = new Vector3(value, value, value);
     }

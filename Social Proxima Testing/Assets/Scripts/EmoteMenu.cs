@@ -1,12 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using TMPro;    
 
 public class EmoteMenu : MonoBehaviour
 {
     [SerializeField] 
     private Animator animator;
+
+    // I (the guy who wrote the EmoteMenu script) didn't write the MouseLock one
+    // I saw it and thought it would be useful to use, but it looks like this would suck with other ports.
     private MouseLock mouseLock;
 
     [SerializeField]
@@ -25,11 +30,15 @@ public class EmoteMenu : MonoBehaviour
     private List<EmoteEntry> emoteEntries = new List<EmoteEntry>();
 
     private bool selectingEmote = false;
+    private Vector2 mousePosition;
+    private List<float> iconDistances = new List<float>();
 
     private string currentEmote;
+   
 
+    // How far the icons spawn from the center
     [SerializeField]
-    private const float Radius = 100;
+    private const float Radius = 150;
 
     private void Start()
     {
@@ -41,7 +50,25 @@ public class EmoteMenu : MonoBehaviour
     {
         if (selectingEmote)
         {
-            Debug.Log("ok");
+            // This part might be terrible for the other ports sorry
+            Vector2 rawMousePosition = Mouse.current.position.ReadValue();
+            // Makes the center of the screen 0,0.
+            mousePosition = new Vector2
+            (
+                rawMousePosition.x - Screen.width / 2f, 
+                rawMousePosition.y - Screen.height / 2f
+            );
+
+            iconDistances.Clear();
+            foreach (var emote in emoteEntries)
+            {
+                float baseDistance = Vector2.Distance(mousePosition, emote.GetPosition()) / Radius;
+                float targetScale = Mathf.Clamp(1 / (baseDistance), 0.5f, 1.2f);
+                emote.SetScale(targetScale);
+                iconDistances.Add(baseDistance);
+            }
+            currentEmote = emoteEntries[iconDistances.IndexOf(iconDistances.Min())].getEmoteName();
+            textObject.GetComponent<TextMeshProUGUI>().text = currentEmote;
         }
     }
 
@@ -58,10 +85,9 @@ public class EmoteMenu : MonoBehaviour
         {
             Close();
             selectingEmote = false;
-            Vector2 mp = Mouse.current.position.ReadValue();
-            Debug.Log(new Vector2(mp.x - Screen.width / 2f, mp.y - Screen.height / 2f));
             textObject.SetActive(false);
             mouseLock.UpdateMouseState();
+            animator.SetTrigger(currentEmote);
         }
     }
 
