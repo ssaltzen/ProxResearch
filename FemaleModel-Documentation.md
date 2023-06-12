@@ -77,9 +77,14 @@ Secondly, I reshape the cylinder, by squeeze its width to let haev a back and fr
 Thrid, I delete the body's bottom surface and recreate a surface where the tight will connect to. Then adjust the body's outer edge to make it have a waist. 
 图片
 Until here, I only did the right side of the body. Since we know hunman body is symmetry, therefore I can just delete the left half and create a symmetry copy of the right side body and connect them together to have the full body.
-图片
+
+![Screenshot (576)](https://github.com/ssaltzen/ProxResearch/assets/115097655/ef011361-8d82-45ce-acce-8498407ccdf6)
+
+
 Then, I want to cut the top layer of the body to draw a circle and pull it out to have the neck. However, I am facing some trouble that it won't let me correctly cut the top platform, so I am currently stuck right here.
-图片
+
+![Screenshot (577)](https://github.com/ssaltzen/ProxResearch/assets/115097655/52514b54-77e3-4ca6-8f1d-a5e1b6883bbd)
+
 
 
 ## Testing ##
