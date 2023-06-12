@@ -87,6 +87,7 @@ Then, I want to cut the top layer of the body to draw a circle and pull it out t
 
 ## Testing ##
 We build and run the female character model on unity to test its animation. After first round of testing, I send the female character model to AR team to let them test and build. We received some feedback about the model's size, however afterward they noticed that they can adjust the size, so problem solved. 
+
 ![9815f115cf3bb4459c24dded5d984a5f (1)](https://github.com/ssaltzen/ProxResearch/assets/115097655/d020d3a6-bbf3-43da-9cfd-6a03a235b40e)
 
 
