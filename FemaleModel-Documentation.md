@@ -36,9 +36,8 @@ Initially, my plan was to acquire a premade character model and add animations u
 
 Here is the screenshot of the character in Mixamo.com:
 
-![](https://hackmd.io/_uploads/BkE6fN7wn.png)
-![](https://hackmd.io/_uploads/SJBgXE7wh.png)
-
+![female#0MixamoUpload](https://github.com/ssaltzen/ProxResearch/assets/115097655/c5ab4f53-cd39-4aaf-b8b9-30e1b3d79537)
+![female#0Mixamo](https://github.com/ssaltzen/ProxResearch/assets/115097655/8529b932-8278-450f-93bb-935c882ed43a)
 
 
 
