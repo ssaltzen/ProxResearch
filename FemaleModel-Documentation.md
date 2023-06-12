@@ -46,21 +46,20 @@ Here is the screenshot of the character in Mixamo.com:
 Following a productive group meeting with Davin and Jesse, we have collectively decided to streamline our character style selection in order to deliver an enhanced gaming and observation experience for both players and researchers. We have chosen a pre-existing character model package which included bones, ensuring effortless integration of additional animations as per future requirements. The Female Model #1 is from that model package. 
 
 Similar to the previous model, I have also uploaded "Female Model #1" to Mixamo. After addressing format issues and meticulously debugging the character model within Mixamo, we have successfully achieved seamless animation functionality.
-![](https://hackmd.io/_uploads/HyJumVXDn.png)
+![female#1Mixamo](https://github.com/ssaltzen/ProxResearch/assets/115097655/4ce7c7f8-5f0e-4b4b-b17a-14869856871a)
 
 One notable observation we made while utilizing Mixamo is that when downloading different animations for the same model, Unity treats each animation as a separate model instead of a single model with multiple animations. This presented a challenge for us, prompting further discussion during our follow-up group meeting.
-图片
 
 To address this issue, we initially explored combining all the animations using Blender. However, during the process, I stumbled upon an alternative approach that seemed more efficient and straightforward: editing the animations directly within Unity. Collaborating closely with Davin, I successfully created an animation controller specifically tailored for "Female Model #1," allowing for seamless integration and control of various animations within Unity's environment.
 
 Animation Controller in Progress Screenshot:
-![](https://hackmd.io/_uploads/S1a67E7P2.png)
+![AnimationController_inProgress](https://github.com/ssaltzen/ProxResearch/assets/115097655/bf81c970-a5ee-4a73-a71f-7aa948ad55ec)
 
 Female model asset in Unity with animations:
-![](https://hackmd.io/_uploads/SkBh74QD3.png)
+![female#1UnityInfo](https://github.com/ssaltzen/ProxResearch/assets/115097655/58f2b5dc-d84c-4027-a446-dca95df309ee)
 
 Detail informations of Female model's animations:
-![](https://hackmd.io/_uploads/ry8MEVXwn.png)
+![female#1UnityAnimationInfo](https://github.com/ssaltzen/ProxResearch/assets/115097655/8a965c52-ca7b-4c28-9f50-190ad4a5c49a)
 
 With the completion of the model and animations, our focus now shifts to thorough testing by our team to identify any potential additions or adjustments that may be required. Once we are satisfied with the results, we will share the model with other teams, encouraging them to test and utilize it in their respective projects. We eagerly anticipate receiving valuable feedback from these teams, which will help us further refine and enhance the overall quality of the model.
 
@@ -86,7 +85,7 @@ Then, I want to cut the top layer of the body to draw a circle and pull it out t
 ## Testing ##
 We build and run the female character model on unity to test its animation. After first round of testing, I send the female character model to AR team to let them test and build. We received some feedback about the model's size, however afterward they noticed that they can adjust the size, so problem solved. 
 
-![](https://hackmd.io/_uploads/SkIToJEv2.gif)
+![9815f115cf3bb4459c24dded5d984a5f (1)](https://github.com/ssaltzen/ProxResearch/assets/115097655/d020d3a6-bbf3-43da-9cfd-6a03a235b40e)
 
 
 Through out the testing, we noticed that the sit position which will coorperate with base team's sofa might need adjustions inorder to perfectlly fit togehter. After the base team test with the model we recieved feed back that: 
