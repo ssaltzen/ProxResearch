@@ -28,13 +28,13 @@ public class SpawnFurniture : MonoBehaviour
         //{
             furnitureComponent = GetComponent<FurnitureList>();
             furniture = furnitureComponent.GetFurnitureList();
-            Debug.Log("Furniture available... " + furniture);
+            //Debug.Log("Furniture available... " + furniture);
             if (throttleCounter >= throttle)
             {
                 
                 if (furniture.Count != 0)
                 {
-                    Debug.Log("Spawning... " + furniture);
+                    //Debug.Log("Spawning... " + furniture);
                     Instantiate(furniture[0]);
                     furniture.RemoveAt(0);
                     furnitureComponent.SetFurnitureList(furniture);
@@ -42,7 +42,7 @@ public class SpawnFurniture : MonoBehaviour
                 }
                 else if ((furniture.Count == 0) && !moved)
                 {
-                    Debug.Log("No Furniture Left to Spawn in List!");
+                    //Debug.Log("No Furniture Left to Spawn in List!");
                     // When nothing is left, move the furniture to their corresponding positions.
                     GetComponent<InteractableData>().SaveData();
                     moved = true;

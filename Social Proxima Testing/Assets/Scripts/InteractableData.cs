@@ -35,7 +35,7 @@ public class InteractableData : MonoBehaviour
             foreach (GameObject item in furnitureList)
             {
                 var itemName = item.name;
-                Debug.Log("Item Name:" + item.name);
+                //Debug.Log("Item Name:" + item.name);
                 if (!positions.ContainsKey(itemName))
                 {
                     positions[itemName] = item.transform.position;
@@ -69,7 +69,7 @@ public class InteractableData : MonoBehaviour
                 rotations[itemName] = item.transform.rotation;
                 localScales[itemName] = item.transform.localScale;
             }
-            Debug.Log("Updated Transforms");
+            //Debug.Log("Updated Transforms");
             throttle = 0.1f;
             throttleCounter = 0.0f;
         }

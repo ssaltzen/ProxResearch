@@ -58,7 +58,7 @@ namespace Proxemics
 
         private void Animate()
         {
-            animator.SetBool("Jump", !controller.isGrounded);
+            animator.SetBool("Grounded", controller.isGrounded);
 
             // The ternary operator is for backwards diagonal movement.
             animator.SetFloat("Horizontal", moveDirection.x * (moveDirection.y >= 0 ? 1 : -1));
@@ -76,15 +76,11 @@ namespace Proxemics
         // From Player Input component.
         private void OnJump()
         {
+            animator.SetTrigger("Jump");
             if (groundedPlayer)
             {
                 playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
             }
-        }
-
-        private void OnFire()
-        {
-            animator.SetTrigger("Social");
         }
 
         private void OnPause()
