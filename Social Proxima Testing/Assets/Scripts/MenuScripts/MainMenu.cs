@@ -8,8 +8,10 @@ public class MainMenu : MonoBehaviour
     public static bool pickUp = true;
     [SerializeField] GameObject OptionsMenu;
     [SerializeField] GameObject RoomOptionsMenu;
-    [SerializeField] GameObject UnavailablePopUp;
+    [SerializeField] GameObject RoomOptionsPopUp;
+    [SerializeField] GameObject PlayPopUp;
 
+    
     public void Play() 
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
@@ -34,10 +36,22 @@ public class MainMenu : MonoBehaviour
         }
         else
         {
-            UnavailablePopUp.SetActive(true);
+            RoomOptionsPopUp.SetActive(true);
         }
     }
 
+    // In Main Menu
+    public void PlayAlert()
+    {
+        if (pickUp)
+        {
+            PlayPopUp.SetActive(true);
+        }
+        else
+        {
+            Play();
+        }
+    }
 
     public void Quit()
     {
