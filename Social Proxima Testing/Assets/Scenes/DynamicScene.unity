@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311918, g: 0.3807398, b: 0.35872716, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311924, g: 0.38073963, b: 0.3587269, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -795,7 +795,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh34616
+  m_Name: pb_Mesh32654
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -1234,7 +1234,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   virtualModels:
   - {fileID: 7934205017816303152, guid: 570cfa2408d590444abb2e5519e2edba, type: 3}
+  - {fileID: 1220485945735456761, guid: 8d77b009531faed4e9a4b74122843a8c, type: 3}
   - {fileID: 3165263432748938893, guid: 8dbb94eb79d947c4cac4e7b795f6869e, type: 3}
+  - {fileID: 6990054323020354058, guid: 9b698e58a020b4cf79e9d032f23726fb, type: 3}
   playerHead: {fileID: 736373418}
 --- !u!1001 &458681729
 PrefabInstance:
@@ -2807,7 +2809,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1867987034}
   playerHead: {fileID: 736373418}
-  couch: {fileID: 1581921038}
+  npc: {fileID: 443101566}
 --- !u!114 &1294128100
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2929,11 +2931,6 @@ MonoBehaviour:
   chair7: {fileID: 403089560}
   chair8: {fileID: 2130971752}
   furnitureList: []
---- !u!1 &1581921038 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1032730393219308067, guid: 63f358a3f78e5409b9c5baff3e9b85f2, type: 3}
-  m_PrefabInstance: {fileID: 2322779764967543954}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1581921043 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4348715617025048380, guid: 63f358a3f78e5409b9c5baff3e9b85f2, type: 3}
