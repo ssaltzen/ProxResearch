@@ -55,7 +55,7 @@ public class FurnitureMenuValues : MonoBehaviour
         numOfChairs = (int) chairSlider.value;
         chairsText.text = numOfChairs.ToString();
         lightLevel = lightSlider.value;
-        Debug.Log("light level: " + lightLevel);
+        //Debug.Log("light level: " + lightLevel);
     }
 
     public int GetNumberOfChairs()

@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 namespace Proxemics
 {
@@ -9,6 +10,8 @@ namespace Proxemics
         private CharacterController controller;
         private Vector3 playerVelocity;
         private bool groundedPlayer;
+        private ObjectPickup objectPickup;
+        private MouseLock mouseLock;
         
         [SerializeField] private float playerSpeed = 10.0f;
         [SerializeField] private float jumpHeight = 1.0f;
@@ -20,6 +23,8 @@ namespace Proxemics
         private void Start()
         {
             controller = gameObject.GetComponent<CharacterController>();
+            objectPickup = gameObject.GetComponent<ObjectPickup>();
+            mouseLock = gameObject.GetComponent<MouseLock>();
             cameraTransform = FindObjectOfType<Camera>().gameObject.transform;
         }
 
@@ -36,7 +41,7 @@ namespace Proxemics
             {
                 playerVelocity.y = 0f;
             }
-            // Pretty much stolen from CharacterController Move documention.
+            // Pretty much stolen from CharacterController Move documentation.
             Vector3 move = new Vector3(moveDirection.x, 0, moveDirection.y);
 
             // So player moves in direction of the camera.
@@ -53,9 +58,9 @@ namespace Proxemics
 
         private void Animate()
         {
-            animator.SetBool("Jump", !controller.isGrounded);
+            animator.SetBool("Grounded", controller.isGrounded);
 
-            // The ternery operator is for backwards diagonal movement.
+            // The ternary operator is for backwards diagonal movement.
             animator.SetFloat("Horizontal", moveDirection.x * (moveDirection.y >= 0 ? 1 : -1));
             animator.SetFloat("Vertical", moveDirection.y);
 
@@ -71,15 +76,24 @@ namespace Proxemics
         // From Player Input component.
         private void OnJump()
         {
+            animator.SetTrigger("Jump");
             if (groundedPlayer)
             {
                 playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
             }
         }
 
-        private void OnFire()
+        private void OnPause()
         {
-            animator.SetTrigger("Social");
+            mouseLock.UpdateMouseState();
+            /* var index = SceneManager.GetActiveScene().buildIndex + 1;
+            index %= 2; */
+            SceneManager.LoadScene(0);
+        }
+
+        private void OnGrab()
+        {
+            objectPickup.PickupCheck();
         }
     }
 }

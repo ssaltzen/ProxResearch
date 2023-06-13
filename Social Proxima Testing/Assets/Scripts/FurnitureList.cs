@@ -75,7 +75,7 @@ public class FurnitureList : MonoBehaviour
         // Add in correct number of chairs
         for (var i = 0; i < numOfChairs; i++)
         {
-            Debug.Log(i + ": " + furnitureList[i]);
+            //Debug.Log(i + ": " + furnitureList[i]);
             this.instantiateFurnitureList.Add(furnitureList[i]);
         }
 
@@ -85,7 +85,7 @@ public class FurnitureList : MonoBehaviour
 
     public List<GameObject> GetFurnitureList()
     {
-        Debug.Log(this.instantiateFurnitureList);
+        //Debug.Log(this.instantiateFurnitureList);
         return instantiateFurnitureList;
     }
 
