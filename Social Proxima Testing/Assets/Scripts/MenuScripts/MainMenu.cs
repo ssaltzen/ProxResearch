@@ -6,6 +6,9 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
     public static bool pickUp = true;
+    [SerializeField] GameObject OptionsMenu;
+    [SerializeField] GameObject RoomOptionsMenu;
+    [SerializeField] GameObject UnavailablePopUp;
 
     public void Play() 
     {
@@ -20,6 +23,21 @@ public class MainMenu : MonoBehaviour
         pickUp = true;
         //Debug.Log("Move Furniture");
     }
+
+    // In Options Menu
+    public void MoveOptions()
+    {
+        if (pickUp)
+        {
+            OptionsMenu.SetActive(false);
+            RoomOptionsMenu.SetActive(true);
+        }
+        else
+        {
+            UnavailablePopUp.SetActive(true);
+        }
+    }
+
 
     public void Quit()
     {
