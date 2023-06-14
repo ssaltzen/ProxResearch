@@ -15,8 +15,8 @@ namespace Proxemics
         private StartRecording dataManager;
         private EmoteMenu emoteMenu;
 
-        [SerializeField] private float playerSpeed = 4.0f;
-        [SerializeField] private float jumpHeight = 4.0f;
+        [SerializeField] private float playerSpeed = 10.0f;
+        [SerializeField] private float jumpHeight = 1.0f;
         [SerializeField] private float gravityValue = -15.00f;
 
         public Vector2 moveDirection { get; private set; }
@@ -80,9 +80,9 @@ namespace Proxemics
         // From Player Input component.
         private void OnJump(InputAction.CallbackContext context)
         {
-            if (groundedPlayer && context.started)
+            animator.SetTrigger("Jump");
+            if (groundedPlayer)
             {
-                animator.SetTrigger("Jump");
                 playerVelocity.y += Mathf.Sqrt(jumpHeight * -0.75f * gravityValue);
             }
         }

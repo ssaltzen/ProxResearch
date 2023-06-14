@@ -120,7 +120,6 @@ public class EmoteMenu : MonoBehaviour
             Destroy(entry.gameObject);
         }
         emoteEntries.Clear();
-
         selectingEmote = false;
         textObject.SetActive(false);
         mouseLock.UpdateMouseState();
