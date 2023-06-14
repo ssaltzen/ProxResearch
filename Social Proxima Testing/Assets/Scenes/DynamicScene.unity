@@ -4113,8 +4113,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 1667578508}
-  playerSpeed: 6
-  jumpHeight: 1
+  playerSpeed: 4
+  jumpHeight: 3
   gravityValue: -15
 --- !u!4 &1867987038
 Transform:
