@@ -1,45 +1,63 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class DetectButtons : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private Proxemics.PlayerControls playerControls;
+    private StartRecording dataManager;
+
+    private InputAction moveAction;
+    private InputAction fireAction;
+    private InputAction jumpAction;
+
+    private Vector2 moveDirection;
+
+    void Awake()
     {
-        
+        dataManager = gameObject.GetComponent<StartRecording>();
+        playerControls = new Proxemics.PlayerControls();
+    }
+
+    void OnEnable()
+    {
+        moveAction = playerControls.Player.Move;
+        fireAction = playerControls.Player.Fire;
+        jumpAction = playerControls.Player.Jump;
+        moveAction.Enable();
+        fireAction.Enable();
+        jumpAction.Enable();
+    }
+
+    void OnDisable()
+    {
+        moveAction.Disable();
+        fireAction.Disable();
+        jumpAction.Disable();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.W))
+        moveDirection = moveAction.ReadValue<Vector2>();
+
+        if (dataManager.collectData == true)
         {
-            Debug.Log("Up pressed");
-        }
-        if (Input.GetKey(KeyCode.S))
-        {
-            Debug.Log("Down pressed");
-        }
-        if (Input.GetKey(KeyCode.D))
-        {
-            Debug.Log("Right pressed");
-        }
-        if (Input.GetKey(KeyCode.A))
-        {
-            Debug.Log("Left pressed");
-        }
-        if (Input.GetButton("Jump"))
-        {
-            Debug.Log("Jump pressed");
-        }
-        if (Input.GetButton("Fire1"))
-        {
-            Debug.Log("Fire 1 pressed");
-        }
-        if (Input.GetButton("Fire2"))
-        {
-            Debug.Log("Fire 2 pressed");
+            // Since this component is connected to the recording script,
+            // we simply operate if recording is active.
+            if ((moveDirection.x > 0) || (moveDirection.y > 0))
+            {
+                Debug.Log($"Player movement: X {moveDirection.x} | Y {moveDirection.y}");
+            }
+            if (jumpAction.triggered)
+            {
+                Debug.Log("Jump pressed");
+            }
+            if (fireAction.triggered)
+            {
+                Debug.Log("Fire pressed");
+            }
         }
     }
 }

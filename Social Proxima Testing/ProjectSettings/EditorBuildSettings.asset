@@ -9,9 +9,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu.unity
     guid: 6ee949ea8a5ab3b4190db40b72f1564a
   - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 4f719c9a0fa82f64d950bc5d6d42f325
   - enabled: 0
@@ -20,5 +17,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/DynamicScene.unity
     guid: 19033e21aa13d4e4a8475295cde9649f
+  - enabled: 0
+    path: Assets/Scenes/VR Menu.unity
+    guid: 841e796f842db154db3a798eaf86ce90
+  - enabled: 0
+    path: Assets/Scenes/DynamicSceneVR.unity
+    guid: cbbf36e016cc8234faaa58b700a8b2f7
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 9e7be553448fa2546aea5752021cbcf7, type: 2}
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 327fc25f332fff446bfd325a28c6c46c, type: 2}
+    com.unity.xr.openxr.settings4: {fileID: 11400000, guid: c6a6ad5c159f3ae4a88563424d342f9e, type: 2}

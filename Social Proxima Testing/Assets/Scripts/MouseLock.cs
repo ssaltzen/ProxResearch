@@ -1,25 +1,31 @@
 using UnityEngine;
 public class MouseLock : MonoBehaviour
 {
+    [SerializeField] 
+    private GameObject virtualCamera;
 
     private bool isLocked = true;
-    void Start()
+
+    private void Start()
     {
         LockMouse();
     }
 
-    void LockMouse()
+    private void LockMouse()
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = true;
+        virtualCamera.GetComponent<Cinemachine.CinemachineInputProvider>().enabled = true;
     }
-    void UnlockMouse()
+
+    private void UnlockMouse()
     {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+        virtualCamera.GetComponent<Cinemachine.CinemachineInputProvider>().enabled = false;
     }
 
-    void UpdateMousePosition()
+    private void UpdateMousePosition()
     {
         float x = Screen.width / 2f;
         float y = Screen.height / 2f;

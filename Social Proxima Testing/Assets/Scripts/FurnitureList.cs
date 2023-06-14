@@ -16,12 +16,10 @@ public class FurnitureList : MonoBehaviour
     [SerializeField] private GameObject chair8;
 
     int numbOfChairs;
-    //[SerializeField] private GameObject sofa;
 
-
-    // Total List of furniture items (???)
+    // Total List of furniture items.
     private List<GameObject> furnitureList;
-    // List of items to be instantiated upon opening the game (??)
+    // List of items to be instantiated upon opening the game.
     private List<GameObject> instantiateFurnitureList;
 
     void Start()
@@ -29,9 +27,7 @@ public class FurnitureList : MonoBehaviour
         furnitureList = new List<GameObject>();
         instantiateFurnitureList = new List<GameObject>();
 
-        // VERY temporary solution (this is clunky)
-        //      Manually add each furniture object available to the list in Start:
-         
+        // Manually add each furniture object available to the list in Start:
         furnitureList.Add(table);
         furnitureList.Add(chair1);
         furnitureList.Add(chair2);
@@ -41,25 +37,18 @@ public class FurnitureList : MonoBehaviour
         furnitureList.Add(chair6);
         furnitureList.Add(chair7);
         furnitureList.Add(chair8);
-        //furnitureList.Add(lamp);
-        //furnitureList.Add(sofa);
-        //      Set items to actual list we want
 
-        // TODO: Need to find how to call this at end of Main Menu Scene
+        // Set items to actual list we want.
         SetInstantiableItems();
 
     }
 
     public void SetInstantiableItems()
     {
-        // TODO: Eventually add something from menu setting only furniture items selected
-        //      to be in instantiateFurnitureList
 
-        // Temporary Controls over the number and type of furniture that spawns in...
-        bool isTableSpawned = FurnitureMenuValues.table;//GetComponent<RoomSpecs>().GetIfTableSpawns();
+        // Static Values from menu control the number and type of furniture that spawns in.
+        bool isTableSpawned = FurnitureMenuValues.table;
         int numOfChairs = FurnitureMenuValues.numOfChairs;
-
-        //Debug.Log(FurnitureMenuValues.length);
 
         // Choose to spawn in table or not.
         if (isTableSpawned == false)
@@ -72,20 +61,16 @@ public class FurnitureList : MonoBehaviour
             furnitureList.RemoveAt(0);
         }
 
-        // Add in correct number of chairs
+        // Add in correct number of chairs.
         for (var i = 0; i < numOfChairs; i++)
         {
-            Debug.Log(i + ": " + furnitureList[i]);
             this.instantiateFurnitureList.Add(furnitureList[i]);
         }
-
-        //Debug.Log(furnitureValues);
         
     }
 
     public List<GameObject> GetFurnitureList()
     {
-        Debug.Log(this.instantiateFurnitureList);
         return instantiateFurnitureList;
     }
 
@@ -94,14 +79,4 @@ public class FurnitureList : MonoBehaviour
         this.instantiateFurnitureList = newList;
     }
 
-    public void SetNumberOfChairs(int newNumber)
-    {
-        numbOfChairs = newNumber;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        //Debug.Log(this.instantiateFurnitureList);
-    }
 }

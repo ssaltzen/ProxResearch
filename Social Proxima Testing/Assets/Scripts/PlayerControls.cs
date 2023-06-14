@@ -31,7 +31,7 @@ namespace Proxemics
             ""actions"": [
                 {
                     ""name"": ""Move"",
-                    ""type"": ""PassThrough"",
+                    ""type"": ""Value"",
                     ""id"": ""21c5aab2-8001-4aea-980a-1ca15523ecf6"",
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
@@ -40,7 +40,7 @@ namespace Proxemics
                 },
                 {
                     ""name"": ""Look"",
-                    ""type"": ""PassThrough"",
+                    ""type"": ""Value"",
                     ""id"": ""19bc60ea-c384-4ab3-b083-15980df7d83e"",
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
@@ -49,7 +49,7 @@ namespace Proxemics
                 },
                 {
                     ""name"": ""Fire"",
-                    ""type"": ""PassThrough"",
+                    ""type"": ""Button"",
                     ""id"": ""58f68c88-9302-4851-89e1-3e04856e7ded"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
@@ -58,7 +58,7 @@ namespace Proxemics
                 },
                 {
                     ""name"": ""Jump"",
-                    ""type"": ""PassThrough"",
+                    ""type"": ""Button"",
                     ""id"": ""9ef4e094-fa0a-4371-9585-66e7ad04a8bf"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
@@ -67,7 +67,7 @@ namespace Proxemics
                 },
                 {
                     ""name"": ""Pause"",
-                    ""type"": ""PassThrough"",
+                    ""type"": ""Button"",
                     ""id"": ""d53f6a3c-bf79-4c39-acb9-c30f95341d72"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
@@ -76,8 +76,17 @@ namespace Proxemics
                 },
                 {
                     ""name"": ""Grab"",
-                    ""type"": ""PassThrough"",
+                    ""type"": ""Button"",
                     ""id"": ""6ef8fa6e-0c08-43ce-8fd1-2cb635cd409a"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Record"",
+                    ""type"": ""Button"",
+                    ""id"": ""3bdf2fb3-f80b-471e-9152-a2262bad7304"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -91,7 +100,128 @@ namespace Proxemics
                     ""path"": ""<Gamepad>/leftStick"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Touch;Gamepad"",
+                    ""groups"": "";Gamepad"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""WASD"",
+                    ""id"": ""00ca640b-d935-4593-8157-c05846ea39b3"",
+                    ""path"": ""Dpad"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""e2062cb9-1b15-46a2-838c-2f8d72a0bdd9"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""8180e8bd-4097-4f4e-ab88-4523101a6ce9"",
+                    ""path"": ""<Keyboard>/upArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""320bffee-a40b-4347-ac70-c210eb8bc73a"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""1c5327b5-f71c-4f60-99c7-4e737386f1d1"",
+                    ""path"": ""<Keyboard>/downArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""d2581a9b-1d11-4566-b27d-b92aff5fabbc"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""2e46982e-44cc-431b-9f0b-c11910bf467a"",
+                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""fcfe95b8-67b9-4526-84b5-5d0bc98d6400"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""77bff152-3580-4b21-b6de-dcd0c7e41164"",
+                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1635d3fe-58b6-4ba9-a4e2-f4b964f6b5c8"",
+                    ""path"": ""<XRController>/{Primary2DAxis}"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""XR"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3ea4d645-4504-4529-b061-ab81934c3752"",
+                    ""path"": ""<Joystick>/stick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Joystick"",
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -102,7 +232,29 @@ namespace Proxemics
                     ""path"": ""<Gamepad>/rightStick"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Touch;Gamepad"",
+                    ""groups"": "";Gamepad"",
+                    ""action"": ""Look"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8c8e490b-c610-4785-884f-f04217b23ca4"",
+                    ""path"": ""<Pointer>/delta"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse;Touch"",
+                    ""action"": ""Look"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3e5f5442-8668-4b27-a940-df99bad7e831"",
+                    ""path"": ""<Joystick>/{Hatswitch}"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Joystick"",
                     ""action"": ""Look"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -113,41 +265,162 @@ namespace Proxemics
                     ""path"": ""<Gamepad>/rightTrigger"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Touch;Gamepad"",
+                    ""groups"": "";Gamepad"",
                     ""action"": ""Fire"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""7ec1f5f5-aa1b-4c14-8e17-0d76b9d18027"",
-                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""id"": ""05f6913d-c316-48b2-a6bb-e225f14c7960"",
+                    ""path"": ""<Mouse>/leftButton"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Touch;Gamepad"",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""Fire"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""886e731e-7071-4ae4-95c0-e61739dad6fd"",
+                    ""path"": ""<Touchscreen>/primaryTouch/tap"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Touch"",
+                    ""action"": ""Fire"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ee3d0cd2-254e-47a7-a8cb-bc94d9658c54"",
+                    ""path"": ""<Joystick>/trigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Joystick"",
+                    ""action"": ""Fire"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8255d333-5683-4943-a58a-ccb207ff1dce"",
+                    ""path"": ""<XRController>/{PrimaryAction}"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""XR"",
+                    ""action"": ""Fire"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5f572fa4-bc71-4cf8-8bcf-28d5c3b94062"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
                     ""action"": ""Jump"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""d12433bb-571f-4ac7-adee-8db1369cc9b9"",
-                    ""path"": ""<Gamepad>/start"",
+                    ""id"": ""607f1f80-4841-4a6d-ae98-c89853004f46"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Touch;Gamepad"",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Jump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b9b5697b-cc1e-4f6e-87b0-deeea915af36"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
                     ""action"": ""Pause"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""75f7d327-4f11-416d-a242-1b8d698f3e01"",
-                    ""path"": ""<Gamepad>/leftTrigger"",
+                    ""id"": ""30a5faee-4eb6-4bf6-8d6b-e56d46ba6f00"",
+                    ""path"": ""<Keyboard>/e"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Gamepad;Touch"",
+                    ""groups"": ""Keyboard&Mouse"",
                     ""action"": ""Grab"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""17a87e31-f530-406c-9aa4-919946d071b4"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Grab"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0eda1df1-3f9d-4ab5-8588-be417ce26623"",
+                    ""path"": ""<XRController>/gripButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""XR"",
+                    ""action"": ""Grab"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""70268ad5-9af8-429e-ba08-9586e8575be8"",
+                    ""path"": ""<Keyboard>/x"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Record"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9924dcc2-13a4-4349-9219-52b49cd0db80"",
+                    ""path"": ""<XRController>{RightHand}/secondaryButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""XR"",
+                    ""action"": ""Record"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d058a036-2b40-414e-8f62-ba7ea83669dc"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""632b64fb-cb22-465e-9328-5979cbb1abfa"",
+                    ""path"": ""<XRController>{LeftHand}/menuButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""XR"",
+                    ""action"": ""Pause"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -155,12 +428,12 @@ namespace Proxemics
         },
         {
             ""name"": ""UI"",
-            ""id"": ""432b68bb-ae96-4943-acec-0075902ae998"",
+            ""id"": ""06daffa3-4877-48d7-8321-14a06a532ad6"",
             ""actions"": [
                 {
                     ""name"": ""Navigate"",
                     ""type"": ""PassThrough"",
-                    ""id"": ""5168900b-3b86-4905-b13a-c821a85d68e8"",
+                    ""id"": ""67265f56-d71f-4fb5-bb4d-11006e61b33e"",
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -169,7 +442,7 @@ namespace Proxemics
                 {
                     ""name"": ""Submit"",
                     ""type"": ""Button"",
-                    ""id"": ""9c2051de-843d-4814-b498-cabf6f4c3150"",
+                    ""id"": ""0c209fd6-4ced-4953-8a8c-db27091c5cbb"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -178,7 +451,7 @@ namespace Proxemics
                 {
                     ""name"": ""Cancel"",
                     ""type"": ""Button"",
-                    ""id"": ""0eea2003-272c-40ca-bc4b-a592bebf5bd0"",
+                    ""id"": ""87bd358e-e50a-45ce-bd41-f5ee0fec692d"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -187,7 +460,7 @@ namespace Proxemics
                 {
                     ""name"": ""Point"",
                     ""type"": ""PassThrough"",
-                    ""id"": ""17603774-f3b3-432f-acb7-8ab27f51f946"",
+                    ""id"": ""ee2e6a04-8bd9-4868-8f20-63ca76fd6eed"",
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -196,7 +469,7 @@ namespace Proxemics
                 {
                     ""name"": ""Click"",
                     ""type"": ""PassThrough"",
-                    ""id"": ""ba33edbd-1160-47d8-b1cb-0ef1323a9ba0"",
+                    ""id"": ""165b2ce9-a690-48df-9fed-c321815bfe99"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -205,7 +478,7 @@ namespace Proxemics
                 {
                     ""name"": ""ScrollWheel"",
                     ""type"": ""PassThrough"",
-                    ""id"": ""790dc2b1-f753-4203-88e4-400e9f34924d"",
+                    ""id"": ""d6baddb2-6e68-48ba-bb36-b068ca07bee2"",
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -214,7 +487,7 @@ namespace Proxemics
                 {
                     ""name"": ""MiddleClick"",
                     ""type"": ""PassThrough"",
-                    ""id"": ""ad63018d-1733-40ad-9d04-592c5601927f"",
+                    ""id"": ""81401567-d25e-440e-b7df-288262c0cccd"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -223,7 +496,7 @@ namespace Proxemics
                 {
                     ""name"": ""RightClick"",
                     ""type"": ""PassThrough"",
-                    ""id"": ""5b91a38b-5227-4472-b28a-56e1b5154647"",
+                    ""id"": ""661061a8-df39-4d22-b44a-21a1ec5e0452"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -232,7 +505,7 @@ namespace Proxemics
                 {
                     ""name"": ""TrackedDevicePosition"",
                     ""type"": ""PassThrough"",
-                    ""id"": ""bb163437-f89a-4aaa-baea-1ad6533a6080"",
+                    ""id"": ""04436706-1ba5-4c4a-b52e-3d23e7c59d6b"",
                     ""expectedControlType"": ""Vector3"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -241,7 +514,7 @@ namespace Proxemics
                 {
                     ""name"": ""TrackedDeviceOrientation"",
                     ""type"": ""PassThrough"",
-                    ""id"": ""9b670257-8961-464f-bc9b-1c0867dabb7e"",
+                    ""id"": ""e0a52646-acf7-4d6b-8d26-fa3ed26aba9f"",
                     ""expectedControlType"": ""Quaternion"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -251,7 +524,7 @@ namespace Proxemics
             ""bindings"": [
                 {
                     ""name"": ""Gamepad"",
-                    ""id"": ""8c7f673b-070b-4006-a0f8-e5c372efcf72"",
+                    ""id"": ""809f371f-c5e2-4e7a-83a1-d867598f40dd"",
                     ""path"": ""2DVector"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -262,7 +535,7 @@ namespace Proxemics
                 },
                 {
                     ""name"": ""up"",
-                    ""id"": ""9c13ce48-bbf1-453c-b55b-60799f9eae71"",
+                    ""id"": ""14a5d6e8-4aaf-4119-a9ef-34b8c2c548bf"",
                     ""path"": ""<Gamepad>/leftStick/up"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -273,7 +546,7 @@ namespace Proxemics
                 },
                 {
                     ""name"": ""up"",
-                    ""id"": ""fb0c8d06-948e-4746-886c-370be70e63d7"",
+                    ""id"": ""9144cbe6-05e1-4687-a6d7-24f99d23dd81"",
                     ""path"": ""<Gamepad>/rightStick/up"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -284,7 +557,7 @@ namespace Proxemics
                 },
                 {
                     ""name"": ""down"",
-                    ""id"": ""fa763e09-a80f-49c2-af98-0f597fd1e050"",
+                    ""id"": ""2db08d65-c5fb-421b-983f-c71163608d67"",
                     ""path"": ""<Gamepad>/leftStick/down"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -295,7 +568,7 @@ namespace Proxemics
                 },
                 {
                     ""name"": ""down"",
-                    ""id"": ""cc6e55ef-bca8-4e48-a2b3-19a3dd478edd"",
+                    ""id"": ""58748904-2ea9-4a80-8579-b500e6a76df8"",
                     ""path"": ""<Gamepad>/rightStick/down"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -306,7 +579,7 @@ namespace Proxemics
                 },
                 {
                     ""name"": ""left"",
-                    ""id"": ""1cbd03b0-4ae6-4cbf-8a1e-e4a9bc6f496a"",
+                    ""id"": ""8ba04515-75aa-45de-966d-393d9bbd1c14"",
                     ""path"": ""<Gamepad>/leftStick/left"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -317,7 +590,7 @@ namespace Proxemics
                 },
                 {
                     ""name"": ""left"",
-                    ""id"": ""93fa925b-38ae-454b-8374-217196f6b9dc"",
+                    ""id"": ""712e721c-bdfb-4b23-a86c-a0d9fcfea921"",
                     ""path"": ""<Gamepad>/rightStick/left"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -328,7 +601,7 @@ namespace Proxemics
                 },
                 {
                     ""name"": ""right"",
-                    ""id"": ""f2c71ccc-0dac-4441-962e-6ad4f166234a"",
+                    ""id"": ""fcd248ae-a788-4676-a12e-f4d81205600b"",
                     ""path"": ""<Gamepad>/leftStick/right"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -339,7 +612,7 @@ namespace Proxemics
                 },
                 {
                     ""name"": ""right"",
-                    ""id"": ""ffe31471-daa5-4f12-a744-32bfbf27f838"",
+                    ""id"": ""1f04d9bc-c50b-41a1-bfcc-afb75475ec20"",
                     ""path"": ""<Gamepad>/rightStick/right"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -350,7 +623,7 @@ namespace Proxemics
                 },
                 {
                     ""name"": """",
-                    ""id"": ""79c0bd44-b55e-4fe8-963d-3fef78e8e81b"",
+                    ""id"": ""fb8277d4-c5cd-4663-9dc7-ee3f0b506d90"",
                     ""path"": ""<Gamepad>/dpad"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -361,7 +634,7 @@ namespace Proxemics
                 },
                 {
                     ""name"": ""Joystick"",
-                    ""id"": ""f2c83b18-a02b-4d13-8e72-e4fd70c8259a"",
+                    ""id"": ""e25d9774-381c-4a61-b47c-7b6b299ad9f9"",
                     ""path"": ""2DVector"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -372,7 +645,7 @@ namespace Proxemics
                 },
                 {
                     ""name"": ""up"",
-                    ""id"": ""dbbb56c9-3351-4526-9bae-f06591ab6e73"",
+                    ""id"": ""3db53b26-6601-41be-9887-63ac74e79d19"",
                     ""path"": ""<Joystick>/stick/up"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -383,7 +656,7 @@ namespace Proxemics
                 },
                 {
                     ""name"": ""down"",
-                    ""id"": ""cfa90de2-5da0-4f78-bfa2-d2430977dd3d"",
+                    ""id"": ""0cb3e13e-3d90-4178-8ae6-d9c5501d653f"",
                     ""path"": ""<Joystick>/stick/down"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -394,7 +667,7 @@ namespace Proxemics
                 },
                 {
                     ""name"": ""left"",
-                    ""id"": ""4ae8849a-9af6-4a99-a026-73d90ec4f141"",
+                    ""id"": ""0392d399-f6dd-4c82-8062-c1e9c0d34835"",
                     ""path"": ""<Joystick>/stick/left"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -405,7 +678,7 @@ namespace Proxemics
                 },
                 {
                     ""name"": ""right"",
-                    ""id"": ""ed74e30c-0cb0-47b7-9102-a4b49290770f"",
+                    ""id"": ""942a66d9-d42f-43d6-8d70-ecb4ba5363bc"",
                     ""path"": ""<Joystick>/stick/right"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -416,7 +689,7 @@ namespace Proxemics
                 },
                 {
                     ""name"": ""Keyboard"",
-                    ""id"": ""56b081e7-7f41-4199-b080-c488a168620a"",
+                    ""id"": ""ff527021-f211-4c02-933e-5976594c46ed"",
                     ""path"": ""2DVector"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -427,7 +700,7 @@ namespace Proxemics
                 },
                 {
                     ""name"": ""up"",
-                    ""id"": ""9e7fe8b8-a261-48f9-8932-43fc0d7e65f4"",
+                    ""id"": ""563fbfdd-0f09-408d-aa75-8642c4f08ef0"",
                     ""path"": ""<Keyboard>/w"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -438,7 +711,7 @@ namespace Proxemics
                 },
                 {
                     ""name"": ""up"",
-                    ""id"": ""c5fd6da7-c3c1-4e68-9f08-9232d577c5e0"",
+                    ""id"": ""eb480147-c587-4a33-85ed-eb0ab9942c43"",
                     ""path"": ""<Keyboard>/upArrow"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -449,7 +722,7 @@ namespace Proxemics
                 },
                 {
                     ""name"": ""down"",
-                    ""id"": ""782deb48-d337-4a05-b6a9-d181755d5a02"",
+                    ""id"": ""2bf42165-60bc-42ca-8072-8c13ab40239b"",
                     ""path"": ""<Keyboard>/s"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -460,7 +733,7 @@ namespace Proxemics
                 },
                 {
                     ""name"": ""down"",
-                    ""id"": ""94b067d3-2166-4fc0-9ddd-ac814ade2d76"",
+                    ""id"": ""85d264ad-e0a0-4565-b7ff-1a37edde51ac"",
                     ""path"": ""<Keyboard>/downArrow"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -471,7 +744,7 @@ namespace Proxemics
                 },
                 {
                     ""name"": ""left"",
-                    ""id"": ""ece28e2c-a4e1-4379-9311-31ab5bf1f6f2"",
+                    ""id"": ""74214943-c580-44e4-98eb-ad7eebe17902"",
                     ""path"": ""<Keyboard>/a"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -482,7 +755,7 @@ namespace Proxemics
                 },
                 {
                     ""name"": ""left"",
-                    ""id"": ""d95c65be-eb09-4e6f-a28b-f54598aa6f9e"",
+                    ""id"": ""cea9b045-a000-445b-95b8-0c171af70a3b"",
                     ""path"": ""<Keyboard>/leftArrow"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -493,7 +766,7 @@ namespace Proxemics
                 },
                 {
                     ""name"": ""right"",
-                    ""id"": ""2beed2e1-7861-4c8d-91f2-88810b885169"",
+                    ""id"": ""8607c725-d935-4808-84b1-8354e29bab63"",
                     ""path"": ""<Keyboard>/d"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -504,7 +777,7 @@ namespace Proxemics
                 },
                 {
                     ""name"": ""right"",
-                    ""id"": ""bc90dcb1-af98-4491-a122-2acbcfd3b2f4"",
+                    ""id"": ""4cda81dc-9edd-4e03-9d7c-a71a14345d0b"",
                     ""path"": ""<Keyboard>/rightArrow"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -515,29 +788,29 @@ namespace Proxemics
                 },
                 {
                     ""name"": """",
-                    ""id"": ""36937c65-4ba8-4d35-876a-3b219633504a"",
+                    ""id"": ""9e92bb26-7e3b-4ec4-b06b-3c8f8e498ddc"",
                     ""path"": ""*/{Submit}"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Keyboard&Mouse;Gamepad;Touch;Joystick;XR"",
+                    ""groups"": """",
                     ""action"": ""Submit"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""d46d274e-060d-4c70-b464-6323c6c96c41"",
+                    ""id"": ""82627dcc-3b13-4ba9-841d-e4b746d6553e"",
                     ""path"": ""*/{Cancel}"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Keyboard&Mouse;Gamepad;Touch;Joystick;XR"",
+                    ""groups"": """",
                     ""action"": ""Cancel"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""b25e6edc-81a8-462c-979b-6c49283dbd7b"",
+                    ""id"": ""c52c8e0b-8179-41d3-b8a1-d149033bbe86"",
                     ""path"": ""<Mouse>/position"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -548,7 +821,7 @@ namespace Proxemics
                 },
                 {
                     ""name"": """",
-                    ""id"": ""2facc00c-433c-4b9b-9959-a65dc46e44fc"",
+                    ""id"": ""e1394cbc-336e-44ce-9ea8-6007ed6193f7"",
                     ""path"": ""<Pen>/position"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -559,7 +832,7 @@ namespace Proxemics
                 },
                 {
                     ""name"": """",
-                    ""id"": ""ace046a3-5c5a-41cf-969b-1b4ac314b5f4"",
+                    ""id"": ""5693e57a-238a-46ed-b5ae-e64e6e574302"",
                     ""path"": ""<Touchscreen>/touch*/position"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -570,7 +843,7 @@ namespace Proxemics
                 },
                 {
                     ""name"": """",
-                    ""id"": ""dfcb14ef-3ef4-4852-869e-8429d7b0c050"",
+                    ""id"": ""4faf7dc9-b979-4210-aa8c-e808e1ef89f5"",
                     ""path"": ""<Mouse>/leftButton"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -581,7 +854,7 @@ namespace Proxemics
                 },
                 {
                     ""name"": """",
-                    ""id"": ""6da115d7-05d4-4290-b31f-efdec9388c27"",
+                    ""id"": ""8d66d5ba-88d7-48e6-b1cd-198bbfef7ace"",
                     ""path"": ""<Pen>/tip"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -592,7 +865,7 @@ namespace Proxemics
                 },
                 {
                     ""name"": """",
-                    ""id"": ""30a30a76-d856-428d-928f-6b6a333519c6"",
+                    ""id"": ""47c2a644-3ebc-4dae-a106-589b7ca75b59"",
                     ""path"": ""<Touchscreen>/touch*/press"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -603,7 +876,7 @@ namespace Proxemics
                 },
                 {
                     ""name"": """",
-                    ""id"": ""bf86a045-ed05-4c8e-ad49-05dbea38f672"",
+                    ""id"": ""bb9e6b34-44bf-4381-ac63-5aa15d19f677"",
                     ""path"": ""<XRController>/trigger"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -614,7 +887,7 @@ namespace Proxemics
                 },
                 {
                     ""name"": """",
-                    ""id"": ""d9e2f6b7-1de3-4da9-8147-e6ff3627c2d4"",
+                    ""id"": ""38c99815-14ea-4617-8627-164d27641299"",
                     ""path"": ""<Mouse>/scroll"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -625,7 +898,7 @@ namespace Proxemics
                 },
                 {
                     ""name"": """",
-                    ""id"": ""c076241a-741d-46b2-a588-a0ae74639f23"",
+                    ""id"": ""24066f69-da47-44f3-a07e-0015fb02eb2e"",
                     ""path"": ""<Mouse>/middleButton"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -636,7 +909,7 @@ namespace Proxemics
                 },
                 {
                     ""name"": """",
-                    ""id"": ""e2ac093b-8019-4c6e-bde7-767d0b8893aa"",
+                    ""id"": ""4c191405-5738-4d4b-a523-c6a301dbf754"",
                     ""path"": ""<Mouse>/rightButton"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -647,7 +920,7 @@ namespace Proxemics
                 },
                 {
                     ""name"": """",
-                    ""id"": ""18cfd6c6-c1dc-4595-a3b1-8c8e71747152"",
+                    ""id"": ""7236c0d9-6ca3-47cf-a6ee-a97f5b59ea77"",
                     ""path"": ""<XRController>/devicePosition"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -658,7 +931,7 @@ namespace Proxemics
                 },
                 {
                     ""name"": """",
-                    ""id"": ""4ffcd20e-4c7d-40b2-b873-9156907231c3"",
+                    ""id"": ""23e01e3a-f935-4948-8d8b-9bcac77714fb"",
                     ""path"": ""<XRController>/deviceRotation"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -741,6 +1014,7 @@ namespace Proxemics
             m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
             m_Player_Pause = m_Player.FindAction("Pause", throwIfNotFound: true);
             m_Player_Grab = m_Player.FindAction("Grab", throwIfNotFound: true);
+            m_Player_Record = m_Player.FindAction("Record", throwIfNotFound: true);
             // UI
             m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
             m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -820,6 +1094,7 @@ namespace Proxemics
         private readonly InputAction m_Player_Jump;
         private readonly InputAction m_Player_Pause;
         private readonly InputAction m_Player_Grab;
+        private readonly InputAction m_Player_Record;
         public struct PlayerActions
         {
             private @PlayerControls m_Wrapper;
@@ -830,6 +1105,7 @@ namespace Proxemics
             public InputAction @Jump => m_Wrapper.m_Player_Jump;
             public InputAction @Pause => m_Wrapper.m_Player_Pause;
             public InputAction @Grab => m_Wrapper.m_Player_Grab;
+            public InputAction @Record => m_Wrapper.m_Player_Record;
             public InputActionMap Get() { return m_Wrapper.m_Player; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -857,6 +1133,9 @@ namespace Proxemics
                 @Grab.started += instance.OnGrab;
                 @Grab.performed += instance.OnGrab;
                 @Grab.canceled += instance.OnGrab;
+                @Record.started += instance.OnRecord;
+                @Record.performed += instance.OnRecord;
+                @Record.canceled += instance.OnRecord;
             }
 
             private void UnregisterCallbacks(IPlayerActions instance)
@@ -879,6 +1158,9 @@ namespace Proxemics
                 @Grab.started -= instance.OnGrab;
                 @Grab.performed -= instance.OnGrab;
                 @Grab.canceled -= instance.OnGrab;
+                @Record.started -= instance.OnRecord;
+                @Record.performed -= instance.OnRecord;
+                @Record.canceled -= instance.OnRecord;
             }
 
             public void RemoveCallbacks(IPlayerActions instance)
@@ -1067,6 +1349,7 @@ namespace Proxemics
             void OnJump(InputAction.CallbackContext context);
             void OnPause(InputAction.CallbackContext context);
             void OnGrab(InputAction.CallbackContext context);
+            void OnRecord(InputAction.CallbackContext context);
         }
         public interface IUIActions
         {
