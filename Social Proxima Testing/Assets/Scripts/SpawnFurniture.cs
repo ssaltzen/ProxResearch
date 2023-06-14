@@ -9,12 +9,11 @@ public class SpawnFurniture : MonoBehaviour
     private List<GameObject> furniture;
     private FurnitureList furnitureComponent;
     private bool moved = false;
+
     // Start is called before the first frame update
     void Start()
     {
         furniture = new List<GameObject>();
-        //furnitureComponent = GetComponent<FurnitureList>();
-        //furniture = furnitureComponent.GetFurnitureList();
     }
 
     // Update is called once per frame
@@ -24,32 +23,27 @@ public class SpawnFurniture : MonoBehaviour
         // Throttle the spawn rate of furniture item
         throttleCounter += Time.deltaTime;
         
-        //if (Input.GetKey(KeyCode.UpArrow))
-        //{
-            furnitureComponent = GetComponent<FurnitureList>();
-            furniture = furnitureComponent.GetFurnitureList();
-            //Debug.Log("Furniture available... " + furniture);
-            if (throttleCounter >= throttle)
+        furnitureComponent = GetComponent<FurnitureList>();
+        furniture = furnitureComponent.GetFurnitureList();
+        //Debug.Log("Furniture available... " + furniture);
+        if (throttleCounter >= throttle)
+        {
+            
+            if (furniture.Count != 0)
             {
-                
-                if (furniture.Count != 0)
-                {
-                    //Debug.Log("Spawning... " + furniture);
-                    Instantiate(furniture[0]);
-                    furniture.RemoveAt(0);
-                    furnitureComponent.SetFurnitureList(furniture);
-                    furniture = furnitureComponent.GetFurnitureList();
-                }
-                else if ((furniture.Count == 0) && !moved)
-                {
-                    //Debug.Log("No Furniture Left to Spawn in List!");
-                    // When nothing is left, move the furniture to their corresponding positions.
-                    GetComponent<InteractableData>().SaveData();
-                    moved = true;
-                }
-                throttle = 0.1f;
-                throttleCounter = 0.0f;
+                Instantiate(furniture[0]);
+                furniture.RemoveAt(0);
+                furnitureComponent.SetFurnitureList(furniture);
+                furniture = furnitureComponent.GetFurnitureList();
             }
-        //}
+            else if ((furniture.Count == 0) && !moved)
+            {
+                // When nothing is left, move the furniture to their corresponding positions.
+                GetComponent<InteractableData>().SaveData();
+                moved = true;
+            }
+            throttle = 0.1f;
+            throttleCounter = 0.0f;
+        }
     }
 }

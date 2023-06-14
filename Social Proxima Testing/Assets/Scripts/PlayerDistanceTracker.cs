@@ -19,16 +19,9 @@ public class PlayerDistanceTracker : MonoBehaviour
         dataManager = gameObject.GetComponent<StartRecording>();
     }
 
-    // Theoretically, the player will be interacting with a second model which will be sitting on the couch.
-    // So the couch for now is acting as distance from "player 2," which is important to highlight 
-    //      (can be replaced later with NPC object).
-    // Furniture locations need to be done after implementing final positions/movement capabilities!
-
     // Data items we want from this tracker:
     //      Horizontal distance from the player to the couch
     //      The angle of the player and the couch
-
-    // Start is called before the first frame update
 
     // Update is called once per frame
     void Update()
