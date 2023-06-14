@@ -80,9 +80,9 @@ namespace Proxemics
         // From Player Input component.
         private void OnJump(InputAction.CallbackContext context)
         {
-            animator.SetTrigger("Jump");
-            if (groundedPlayer)
+            if (groundedPlayer && context.started)
             {
+                animator.SetTrigger("Jump");
                 playerVelocity.y += Mathf.Sqrt(jumpHeight * -0.75f * gravityValue);
             }
         }
