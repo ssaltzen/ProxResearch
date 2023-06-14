@@ -325,17 +325,6 @@
                 },
                 {
                     "name": "",
-                    "id": "d058a036-2b40-414e-8f62-ba7ea83669dc",
-                    "path": "<Gamepad>/start",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Gamepad",
-                    "action": "Pause",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "30a5faee-4eb6-4bf6-8d6b-e56d46ba6f00",
                     "path": "<Keyboard>/e",
                     "interactions": "",
@@ -358,12 +347,56 @@
                 },
                 {
                     "name": "",
+                    "id": "0eda1df1-3f9d-4ab5-8588-be417ce26623",
+                    "path": "<XRController>/gripButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "XR",
+                    "action": "Grab",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "70268ad5-9af8-429e-ba08-9586e8575be8",
                     "path": "<Keyboard>/x",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
                     "action": "Record",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9924dcc2-13a4-4349-9219-52b49cd0db80",
+                    "path": "<XRController>{RightHand}/secondaryButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "XR",
+                    "action": "Record",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d058a036-2b40-414e-8f62-ba7ea83669dc",
+                    "path": "<Gamepad>/start",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "632b64fb-cb22-465e-9328-5979cbb1abfa",
+                    "path": "<XRController>{LeftHand}/menuButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "XR",
+                    "action": "Pause",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
