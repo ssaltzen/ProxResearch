@@ -9254,7 +9254,6 @@ MonoBehaviour:
   chairSlider: {fileID: 545264158}
   chairsText: {fileID: 96969026}
   tableToggle: {fileID: 1906983118}
-  couchToggle: {fileID: 1948835617}
   lightSlider: {fileID: 1284511323}
   lightTextValue: {fileID: 1644215440}
 --- !u!1 &1076687611
@@ -14772,6 +14771,7 @@ GameObject:
   - component: {fileID: 1655437212}
   - component: {fileID: 1655437213}
   - component: {fileID: 1655437214}
+  - component: {fileID: 1655437215}
   m_Layer: 0
   m_Name: Menu
   m_TagString: Untagged
@@ -14825,6 +14825,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   modelSlider: {fileID: 1025089583}
   modelText: {fileID: 508172576}
+--- !u!114 &1655437215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1655437211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3d2d73ec8244b248a5f64d25973d17f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainMenu: {fileID: 1135938204}
+  characterMenu: {fileID: 1186170655}
+  mainFurnitureMenu: {fileID: 1051271315}
 --- !u!1 &1687694232
 GameObject:
   m_ObjectHideFlags: 0

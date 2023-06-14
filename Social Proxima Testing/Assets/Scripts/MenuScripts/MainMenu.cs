@@ -6,23 +6,26 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
     public static bool pickUp = true;
+    public static bool gameHasBeenEntered = false;
     [SerializeField] GameObject OptionsMenu;
     [SerializeField] GameObject RoomOptionsMenu;
     [SerializeField] GameObject RoomOptionsPopUp;
     [SerializeField] GameObject PlayPopUp;
-
     
     public void Play() 
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         pickUp = false;
+        gameHasBeenEntered = true;
         //Debug.Log("Play");
+        
     }
 
     public void MoveFurniture()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         pickUp = true;
+        gameHasBeenEntered = true;
         //Debug.Log("Move Furniture");
     }
 

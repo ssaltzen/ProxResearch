@@ -12,7 +12,7 @@ public class SliderValueText : MonoBehaviour
     private void Awake()
     {
         tmproText.text = slider.value.ToString("0");
-        Debug.Log(slider.value);
+        //Debug.Log(slider.value);
     }
 
     private void Start()
