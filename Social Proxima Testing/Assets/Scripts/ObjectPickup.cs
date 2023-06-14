@@ -15,7 +15,7 @@ public class ObjectPickup : MonoBehaviour
         {
             if (hit.collider.CompareTag("Interactable"))
             {
-                Debug.Log("Hit");
+                //Debug.Log("Hit");
                 // Store a reference to the picked object
                 pickedObject = hit.collider.gameObject;
 

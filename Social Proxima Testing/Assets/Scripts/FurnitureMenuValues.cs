@@ -25,7 +25,6 @@ public class FurnitureMenuValues : MonoBehaviour
     [SerializeField] public Slider lightSlider;
     [SerializeField] private TextMeshProUGUI lightTextValue;
 
-
     void Awake()
     {
         // Set Length Slider to prior value
