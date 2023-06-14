@@ -7,7 +7,11 @@ public class PlayerDistanceTracker : MonoBehaviour
 
     [SerializeField] public GameObject player;
     [SerializeField] public GameObject playerHead;
-    [SerializeField] public GameObject couch;
+    [SerializeField] public GameObject npc;
+
+    private float time = 10.0f;
+    private float count = 0.0f;
+    private bool collectData = false;
 
     // Theoretically, the player will be interacting with a second model which will be sitting on the couch.
     // So the couch for now is acting as distance from "player 2," which is important to highlight 
@@ -23,16 +27,31 @@ public class PlayerDistanceTracker : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.X))
+        if ((Input.GetKey(KeyCode.X)) || (collectData == true))
         {
-            var npcDistance = Vector3.Distance(player.transform.position, couch.transform.position);
-            Debug.Log("Distance from NPC: " + npcDistance);
+            if (count <= time)
+            {
+                // Set data collection to true
+                collectData = true;
 
-            // The angle is specifically from the player's head to the couch (NPC) to represent a line-of-sight angle
-            // The exact angle calculations could probably use work. Tinker to find what you need!
-            Vector3 toVector = playerHead.transform.position - couch.transform.position;
-            float ncpAngle = Vector3.Angle(transform.up, toVector);
-            Debug.Log("Angle from NPC: " + ncpAngle);
+                // Show the distance from the NPC.
+                var npcDistance = Vector3.Distance(player.transform.position, npc.transform.position);
+                Debug.Log("Distance from NPC: " + npcDistance);
+
+                // The angle is specifically from the player's head to the couch (NPC) to represent a line-of-sight angle.
+                // The exact angle calculations could probably use work. Tinker to find what you need!
+                Vector3 toVector = playerHead.transform.position - npc.transform.position;
+                float ncpAngle = Vector3.Angle(transform.up, toVector);
+                Debug.Log("Angle from NPC: " + ncpAngle);
+
+                // Count time since button press
+                count += Time.deltaTime;
+            }
+            else
+            {
+                collectData = false;
+                count = 0.0f;
+            }
         }
     }
 }

@@ -16,13 +16,13 @@ public class VirtualModelLoader : MonoBehaviour
 
     void Awake()
     {
-        modelType = (int) modelSlider.value;
+        modelSlider.value = (float) modelType;
         modelText.text = modelTypeText;
     }
 
     void Start()
     {
-        modelType = (int) modelSlider.value;
+        modelSlider.value = (float) modelType;
         modelText.text = modelTypeText;
     }
 
