@@ -29,28 +29,14 @@ public class MainMenu : MonoBehaviour
     // In Options Menu
     public void MoveOptions()
     {
-        if (pickUp)
-        {
-            OptionsMenu.SetActive(false);
-            RoomOptionsMenu.SetActive(true);
-        }
-        else
-        {
-            RoomOptionsPopUp.SetActive(true);
-        }
+        OptionsMenu.SetActive(false);
+        RoomOptionsMenu.SetActive(true);
     }
 
     // In Main Menu
     public void PlayAlert()
     {
-        if (pickUp)
-        {
-            PlayPopUp.SetActive(true);
-        }
-        else
-        {
-            Play();
-        }
+        Play();
     }
 
     public void Quit()
