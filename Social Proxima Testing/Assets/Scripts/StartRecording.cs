@@ -10,14 +10,16 @@ public class StartRecording : MonoBehaviour
 
     private float time = 10.0f;
     private float count = 0.0f;
-    private bool collectData = false;
     private bool countIsActive = false;
+
+    public bool collectData { get; set; } = false;
 
     // Update is called once per frame
     void Update()
     {
-        if ((Input.GetKey(KeyCode.X)) || (collectData == true))
+        if (collectData == true)
         {
+            Debug.Log("Check 1");
             if (count <= time)
             {
                 if (countIsActive == false)
@@ -31,8 +33,8 @@ public class StartRecording : MonoBehaviour
                 // Set recording UI to active
                 collectData = true;
                 countIsActive = true;
-
             }
+
             else
             {
                 collectData = false;

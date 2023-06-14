@@ -12,12 +12,14 @@ namespace Proxemics
         private bool groundedPlayer;
         private ObjectPickup objectPickup;
         private MouseLock mouseLock;
-        
+        private StartRecording dataManager;
+        private EmoteMenu emoteMenu;
+
         [SerializeField] private float playerSpeed = 10.0f;
         [SerializeField] private float jumpHeight = 1.0f;
         [SerializeField] private float gravityValue = -15.00f;
 
-        private Vector2 moveDirection;
+        public Vector2 moveDirection { get; private set; }
         private Transform cameraTransform;
 
         private void Start()
@@ -26,6 +28,8 @@ namespace Proxemics
             objectPickup = gameObject.GetComponent<ObjectPickup>();
             mouseLock = gameObject.GetComponent<MouseLock>();
             cameraTransform = FindObjectOfType<Camera>().gameObject.transform;
+            dataManager = gameObject.GetComponent<StartRecording>();
+            emoteMenu = FindObjectOfType<EmoteMenu>();
         }
 
         private void Update()
@@ -68,22 +72,34 @@ namespace Proxemics
         }
 
         // From Player Input component.
-        private void OnMove(InputValue value)
+        private void OnMove(InputAction.CallbackContext context)
         {
-            moveDirection = value.Get<Vector2>();
+            moveDirection = context.ReadValue<Vector2>();
         }
 
         // From Player Input component.
-        private void OnJump()
+        private void OnJump(InputAction.CallbackContext context)
         {
             animator.SetTrigger("Jump");
             if (groundedPlayer)
             {
-                playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
+                playerVelocity.y += Mathf.Sqrt(jumpHeight * -0.75f * gravityValue);
             }
         }
 
-        private void OnPause()
+        private void OnFire(InputAction.CallbackContext context)
+        {
+            if (context.started)
+            {
+                emoteMenu.Open();
+            }
+            else if (context.canceled)
+            {
+                emoteMenu.Close();
+            }
+        }
+
+        private void OnPause(InputAction.CallbackContext context)
         {
             mouseLock.UpdateMouseState();
             /* var index = SceneManager.GetActiveScene().buildIndex + 1;
@@ -91,7 +107,7 @@ namespace Proxemics
             SceneManager.LoadScene(0);
         }
 
-        private void OnGrab()
+        private void OnGrab(InputAction.CallbackContext context)
         {
             objectPickup.PickupCheck();
         }
