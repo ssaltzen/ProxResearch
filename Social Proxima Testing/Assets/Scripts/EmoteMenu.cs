@@ -51,7 +51,7 @@ public class EmoteMenu : MonoBehaviour
         if (selectingEmote)
         {
             // This part might be terrible for the other ports sorry
-            Vector2 rawMousePosition = Mouse.current.position.ReadValue();
+            Vector2 rawMousePosition = Touchscreen.current.position.ReadValue();
             // Makes the center of the screen 0,0.
             mousePosition = new Vector2
             (
@@ -98,7 +98,7 @@ public class EmoteMenu : MonoBehaviour
             
         // For other ports, have a way for the player to stop being able to look around
         // and for a cursor to appear on the screen if not using touchscreen
-        mouseLock.UpdateMouseState();
+        // mouseLock.UpdateMouseState();
     }
 
     private void Rearrange()
@@ -122,7 +122,7 @@ public class EmoteMenu : MonoBehaviour
         emoteEntries.Clear();
         selectingEmote = false;
         textObject.SetActive(false);
-        mouseLock.UpdateMouseState();
+        // mouseLock.UpdateMouseState();
         animator.SetTrigger(currentEmote);
     }
 }

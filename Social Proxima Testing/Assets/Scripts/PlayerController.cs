@@ -11,6 +11,8 @@ namespace Proxemics
         private Vector3 playerVelocity;
         private bool groundedPlayer;
         private ObjectPickup objectPickup;
+        private StartRecording dataManager;
+        private EmoteMenu emoteMenu;
         //private MouseLock mouseLock;
         
         [SerializeField] private float playerSpeed = 10.0f;
@@ -27,13 +29,16 @@ namespace Proxemics
         private InputAction jumpAction;
         private InputAction pauseAction;
         private InputAction grabAction;
+        private InputAction recordAction;
 
         private void Awake()
         {
             controller = gameObject.GetComponent<CharacterController>();
             objectPickup = gameObject.GetComponent<ObjectPickup>();
-            //mouseLock = gameObject.GetComponent<MouseLock>();
+            // mouseLock = gameObject.GetComponent<MouseLock>();
             cameraTransform = FindObjectOfType<Camera>().gameObject.transform;
+            dataManager = gameObject.GetComponent<StartRecording>();
+            emoteMenu = FindObjectOfType<EmoteMenu>();
             playerControls = new PlayerControls();
         }
         
@@ -51,6 +56,9 @@ namespace Proxemics
             pauseAction = playerControls.Player.Pause;
             pauseAction.performed += Pause;
             grabAction = playerControls.Player.Grab;
+            grabAction.performed += Grab;
+            recordAction = playerControls.Player.Record;
+            recordAction.performed += Record;
 
             // Enable all commands selectively.
             moveAction.Enable();
@@ -61,6 +69,10 @@ namespace Proxemics
             if (MainMenu.pickUp)
             {
                 grabAction.Enable();
+            }
+            else
+            {
+                recordAction.Enable();
             }
         }
 
@@ -73,17 +85,13 @@ namespace Proxemics
             jumpAction.Disable();
             pauseAction.Disable();
             grabAction.Disable();
+            recordAction.Disable();
         }
 
         private void FixedUpdate()
         {
             Move();
             Animate();
-
-            if (grabAction.triggered)
-            {
-                objectPickup.PickupCheck();
-            }
         }
 
         private void Update()
@@ -115,7 +123,7 @@ namespace Proxemics
 
         private void Animate()
         {
-            animator.SetBool("Jump", !controller.isGrounded);
+            animator.SetBool("Grounded", controller.isGrounded);
 
             // The ternary operator is for backwards diagonal movement.
             animator.SetFloat("Horizontal", moveDirection.x * (moveDirection.y >= 0 ? 1 : -1));
@@ -127,15 +135,23 @@ namespace Proxemics
         // From Player Input component.
         private void Jump(InputAction.CallbackContext context)
         {
-            if (groundedPlayer)
+            if (groundedPlayer && context.ReadValueAsButton())
             {
-                playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
+                animator.SetTrigger("Jump");
+                playerVelocity.y += Mathf.Sqrt(jumpHeight * -0.75f * gravityValue);
             }
         }
 
         private void Fire(InputAction.CallbackContext context)
         {
-            animator.SetTrigger("Social");
+            if (context.ReadValueAsButton())
+            {
+                emoteMenu.Open();
+            }
+            else if (!context.ReadValueAsButton())
+            {
+                emoteMenu.Close();
+            }
         }
 
         private void Pause(InputAction.CallbackContext context)
@@ -144,6 +160,23 @@ namespace Proxemics
             /* var index = SceneManager.GetActiveScene().buildIndex + 1;
             index %= 2; */
             SceneManager.LoadScene(0);
+        }
+
+        private void Grab(InputAction.CallbackContext context)
+        {
+            if (context.ReadValueAsButton())
+            {
+                //Debug.Log("test");
+                objectPickup.PickupCheck();
+            } 
+        }
+
+        private void Record(InputAction.CallbackContext context)
+        {
+            if (context.ReadValueAsButton())
+            {
+                dataManager.collectData = true;
+            }
         }
     }
 }

@@ -14,6 +14,11 @@ public class DetectButtons : MonoBehaviour
 
     private Vector2 moveDirection;
 
+    [SerializeField] private TMPro.TextMeshProUGUI moveLog;
+    [SerializeField] private TMPro.TextMeshProUGUI jumpLog;
+    [SerializeField] private TMPro.TextMeshProUGUI fireLog;
+    [SerializeField] private TMPro.TextMeshProUGUI touchLog;
+
     void Awake()
     {
         dataManager = gameObject.GetComponent<StartRecording>();
@@ -46,17 +51,30 @@ public class DetectButtons : MonoBehaviour
         {
             // Since this component is connected to the recording script,
             // we simply operate if recording is active.
+
+            touchLog.text = $"Touch {Touchscreen.current.position.ReadValue()}";
+
             if ((moveDirection.x > 0) || (moveDirection.y > 0))
             {
-                Debug.Log($"Player movement: X {moveDirection.x} | Y {moveDirection.y}");
+                moveLog.text = $"X {moveDirection.x} | Y {moveDirection.y}";
             }
+
             if (jumpAction.triggered)
             {
-                Debug.Log("Jump pressed");
+                jumpLog.text = "Jump pressed";
             }
+            else
+            {
+                jumpLog.text = "";
+            }
+
             if (fireAction.triggered)
             {
-                Debug.Log("Fire pressed");
+                fireLog.text = "Fire pressed";
+            }
+            else
+            {
+                fireLog.text = "";
             }
         }
     }

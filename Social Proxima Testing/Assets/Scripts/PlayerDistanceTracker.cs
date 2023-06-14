@@ -5,9 +5,11 @@ using UnityEngine;
 public class PlayerDistanceTracker : MonoBehaviour
 {
 
-    [SerializeField] public GameObject player;
-    [SerializeField] public GameObject playerHead;
-    [SerializeField] public GameObject npc;
+    [SerializeField] private GameObject player;
+    [SerializeField] private GameObject playerHead;
+    [SerializeField] private GameObject npc;
+    [SerializeField] private TMPro.TextMeshProUGUI distanceLog;
+    [SerializeField] private TMPro.TextMeshProUGUI angleLog;
 
     private StartRecording dataManager;
 
@@ -30,13 +32,13 @@ public class PlayerDistanceTracker : MonoBehaviour
         {
             // Show the distance from the NPC.
             var npcDistance = Vector3.Distance(player.transform.position, npc.transform.position);
-            Debug.Log("Distance from NPC: " + npcDistance);
+            distanceLog.text = $"Distance from NPC: {npcDistance}";
 
             // The angle is specifically from the player's head to the couch (NPC) to represent a line-of-sight angle.
             // The exact angle calculations could probably use work. Tinker to find what you need!
             Vector3 toVector = playerHead.transform.position - npc.transform.position;
-            float ncpAngle = Vector3.Angle(transform.up, toVector);
-            Debug.Log("Angle from NPC: " + ncpAngle);
+            float npcAngle = Vector3.Angle(transform.up, toVector);
+            angleLog.text = $"Angle from NPC: {npcAngle}";
 
             // Count time since button press
             count += Time.deltaTime;

@@ -6,8 +6,8 @@ public class StartRecording : MonoBehaviour
 {
 
     [SerializeField] private GameObject recordIndicator;
-    [SerializeField] private GameObject hitXToRecordIndicator;
-    [SerializeField] private GameObject useEtoMoveFurniture;
+    [SerializeField] private GameObject recordButton;
+    [SerializeField] private GameObject furnitureButton;
 
     private float time = 10.0f;
     private float count = 0.0f;
@@ -18,22 +18,17 @@ public class StartRecording : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (MainMenu.pickUp == true)
+        if (MainMenu.pickUp == false)
         {
-            hitXToRecordIndicator.SetActive(false);
-            recordIndicator.SetActive(false);
-            useEtoMoveFurniture.SetActive(true);
-        }
-        else
-        {
-            useEtoMoveFurniture.SetActive(false);
+            furnitureButton.SetActive(false);
+            recordButton.SetActive(true);
+            
             if (collectData == true)
             {
                 if (count <= time)
                 {
                     if (countIsActive == false)
                     {
-                        hitXToRecordIndicator.SetActive(false);
                         recordIndicator.SetActive(true);
                     }
 
@@ -50,13 +45,13 @@ public class StartRecording : MonoBehaviour
                     countIsActive = false;
                     count = 0.0f;
                     recordIndicator.SetActive(false);
-                    hitXToRecordIndicator.SetActive(true);
                 }
             }
-            else
-            {
-                hitXToRecordIndicator.SetActive(true);
-            }
+        }
+        else
+        {
+            furnitureButton.SetActive(true);
+            recordButton.SetActive(false);
         }
     }
 }

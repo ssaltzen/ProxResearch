@@ -1,8 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.ProBuilder;
 using UnityEngine;
-using UnityEngine.ProBuilder;
 
 public class SetVRFloorScale : MonoBehaviour
 {
