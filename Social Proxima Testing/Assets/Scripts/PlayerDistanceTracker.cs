@@ -16,8 +16,10 @@ public class PlayerDistanceTracker : MonoBehaviour
     
     private float timerMax = 0.1f; //every 1/10 of a second
 
-    private string filePath = "Assets/Data/PlayerDistanceTracker.json";
+    private string filePath = "Assets/Data/";
     private StreamWriter writer;
+
+    private const string OpenCountKey = "OpenCount";
 
     // Theoretically, the player will be interacting with a second model which will be sitting on the couch.
     // So the couch for now is acting as distance from "player 2," which is important to highlight 
@@ -34,8 +36,16 @@ public class PlayerDistanceTracker : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // Create the file if it doesn't exist, otherwise append to the file
+        // Display the open count from PlayerPrefs
+        int openCount = PlayerPrefs.GetInt(OpenCountKey, 0);
+
+
+        filePath = filePath + "playertracker" + openCount.ToString() + ".json";
         writer = File.AppendText(filePath);
+        openCount++;
+        PlayerPrefs.SetInt(OpenCountKey, openCount);
+        
+        
     }
 
     void OnDestroy()
@@ -66,7 +76,7 @@ public class PlayerDistanceTracker : MonoBehaviour
 
             float time = Time.time;
             
-            PlayerDistanceData data = new PlayerDistanceData(npcDistance, ncpAngle, time);
+            PlayerDistanceData data = new PlayerDistanceData(npcDistance, ncpAngle, time, player.transform.position);
             string json = JsonUtility.ToJson(data);
             writer.WriteLine(json);
             writer.Flush();
@@ -80,14 +90,15 @@ public class PlayerDistanceTracker : MonoBehaviour
     {
         public float distance;
         public float angle;
-
+        public Vector3 location;
         public float time;
 
-        public PlayerDistanceData(float distance, float angle, float time)
+        public PlayerDistanceData(float distance, float angle, float time, Vector3 location)
         {
             this.distance = distance;
             this.angle = angle;
             this.time = time;
+            this.location = location;
         }
     }
 }
