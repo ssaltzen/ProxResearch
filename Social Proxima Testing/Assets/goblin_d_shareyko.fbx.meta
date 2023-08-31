@@ -18,17 +18,17 @@ ModelImporter:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: goblin_diffuse
-    second: {fileID: 2800000, guid: 920876d6a5b91a14d8eed18c7b51c1f4, type: 3}
+    second: {fileID: 2800000, guid: 7336e5430cdd69a45b6881ac7a795eb5, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: goblin_normal
-    second: {fileID: 2800000, guid: d5a56ba35b26995499d319c40e67018c, type: 3}
+    second: {fileID: 2800000, guid: 6a09b8b74fac0e949b389b406439d23b, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: goblin_specular
-    second: {fileID: 2800000, guid: b8d72fae75b63ed4d83895ef0792dd1c, type: 3}
+    second: {fileID: 2800000, guid: 730576829a64d0846abd8d50bdcb9722, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0
