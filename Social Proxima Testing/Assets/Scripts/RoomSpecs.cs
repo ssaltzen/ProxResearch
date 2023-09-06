@@ -11,25 +11,18 @@ public class RoomSpecs : MonoBehaviour
     public static int numOfChairs;
     // Furniture(On/Off)
     public static bool table = true;
-    //public static bool f2;
-    //public static bool f3;
 
     [SerializeField] public Slider lengthSlider;
     [SerializeField] public Slider widthSlider;
     [SerializeField] public Slider chairSlider;
 
     [SerializeField] public Toggle tableButton;
-    //[SerializeField] public Button button2;
-    //[SerializeField] public Button button3;
 
     void Awake()
     {
         length = lengthSlider.value;
         width = widthSlider.value;
         numOfChairs = (int) chairSlider.value;
-
-        //lamp = lampButton.
-        //Debug.Log(length);
     }
 
     // I think this is important for when you "pause" the Game.
@@ -43,11 +36,9 @@ public class RoomSpecs : MonoBehaviour
 
     void Update()
     {
-        //if (length != slider1.value)
         length = lengthSlider.value;
         width = widthSlider.value;
         numOfChairs = (int) chairSlider.value;
-        //Debug.Log(numOfChairs);
     }
 
     public float GetCurrentLength()
@@ -62,7 +53,7 @@ public class RoomSpecs : MonoBehaviour
 
     public int GetNumOfChairs()
     {
-        return 8;
+        return numOfChairs;
     }
 
     public bool GetIfTableSpawns()

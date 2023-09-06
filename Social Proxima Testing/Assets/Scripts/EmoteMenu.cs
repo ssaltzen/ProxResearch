@@ -74,28 +74,6 @@ public class EmoteMenu : MonoBehaviour
         }
     }
 
-    public void OnFire(InputAction.CallbackContext context)
-    {
-        if (context.started)
-        {
-            Open();
-            selectingEmote = true;
-            textObject.SetActive(true);
-            
-            // For other ports, have a way for the player to stop being able to look around
-            // and for a cursor to appear on the screen if not using touchscreen
-            mouseLock.UpdateMouseState();
-        } 
-        else if (context.canceled)
-        {
-            Close();
-            selectingEmote = false;
-            textObject.SetActive(false);
-            mouseLock.UpdateMouseState();
-            animator.SetTrigger(currentEmote);
-        }
-    }
-
     private void CreateEntry(Texture icon, string emoteName)
     {
         GameObject entry = Instantiate(entryPrefab, transform);
@@ -107,13 +85,20 @@ public class EmoteMenu : MonoBehaviour
         emoteEntries.Add(entryScript);
     }
 
-    private void Open()
+    public void Open()
     {
         for (int i = 0; i < emoteNames.Count; i++)
         {
             CreateEntry(emoteIcons[i], emoteNames[i]);
         }
         Rearrange();
+
+        selectingEmote = true;
+        textObject.SetActive(true);
+            
+        // For other ports, have a way for the player to stop being able to look around
+        // and for a cursor to appear on the screen if not using touchscreen
+        mouseLock.UpdateMouseState();
     }
 
     private void Rearrange()
@@ -128,13 +113,16 @@ public class EmoteMenu : MonoBehaviour
         }
     }
 
-    private void Close()
+    public void Close()
     {
         foreach (var entry in emoteEntries)
         {
             Destroy(entry.gameObject);
         }
         emoteEntries.Clear();
+        selectingEmote = false;
+        textObject.SetActive(false);
+        mouseLock.UpdateMouseState();
+        animator.SetTrigger(currentEmote);
     }
-
 }
