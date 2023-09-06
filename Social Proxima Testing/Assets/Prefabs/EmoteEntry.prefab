@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2242534418735453478}
   - component: {fileID: 5699609520776085892}
+  - component: {fileID: 1597607853014183325}
   m_Layer: 5
   m_Name: EmoteEntry
   m_TagString: Untagged
@@ -52,6 +53,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   icon: {fileID: 7984356233598972276}
+--- !u!222 &1597607853014183325
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6567321590706299891}
+  m_CullTransparentMesh: 1
 --- !u!1 &6997999618450091403
 GameObject:
   m_ObjectHideFlags: 0

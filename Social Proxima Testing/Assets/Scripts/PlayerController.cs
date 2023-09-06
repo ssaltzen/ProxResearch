@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
@@ -6,6 +7,8 @@ namespace Proxemics
 {
     public class PlayerController : MonoBehaviour
     {
+        public event Action<Emote> Emoted;
+
         [SerializeField] private Animator animator;
         private CharacterController controller;
         private Vector3 playerVelocity;
@@ -110,6 +113,12 @@ namespace Proxemics
         private void OnGrab(InputAction.CallbackContext context)
         {
             objectPickup.PickupCheck();
+        }
+
+        public void PerformEmote(Emote emote)
+        {
+            animator.SetTrigger(emote.name);
+            Emoted?.Invoke(emote);
         }
     }
 }
