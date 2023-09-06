@@ -795,7 +795,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh56474
+  m_Name: pb_Mesh54582
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -1313,6 +1313,7 @@ MonoBehaviour:
   - {fileID: 1220485945735456761, guid: 8d77b009531faed4e9a4b74122843a8c, type: 3}
   - {fileID: 3165263432748938893, guid: 8dbb94eb79d947c4cac4e7b795f6869e, type: 3}
   - {fileID: 6990054323020354058, guid: 9b698e58a020b4cf79e9d032f23726fb, type: 3}
+  player: {fileID: 1867987037}
   playerHead: {fileID: 736373418}
 --- !u!1001 &458681729
 PrefabInstance:
