@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using TMPro;    
+using TMPro;
+using System;
+using Proxemics;
 
 public class EmoteMenu : MonoBehaviour
 {
-    [SerializeField] 
-    private Animator animator;
+    [SerializeField]
+    private PlayerController player;
 
     // I (the guy who wrote the EmoteMenu script) didn't write the MouseLock one
     // I saw it and thought it would be useful to use, but it looks like this would suck with other ports.
@@ -20,12 +22,7 @@ public class EmoteMenu : MonoBehaviour
     [SerializeField]
     private GameObject textObject;
 
-    [SerializeField] 
-    private List<Texture> emoteIcons;
-    private List<string> emoteNames = new List<string>
-    {
-        "Handshake", "Wave"
-    };
+    private Emote[] emotes;
 
     private List<EmoteEntry> emoteEntries = new List<EmoteEntry>();
 
@@ -33,7 +30,7 @@ public class EmoteMenu : MonoBehaviour
     private Vector2 mousePosition;
     private List<float> iconDistances = new List<float>();
 
-    private string currentEmote;
+    private Emote currentEmote;
    
 
     // How far the icons spawn from the center
@@ -44,6 +41,8 @@ public class EmoteMenu : MonoBehaviour
     {
         textObject.SetActive(false);
         mouseLock = FindObjectOfType<MouseLock>();
+
+        emotes = Resources.LoadAll<Emote>("Emotes");
     }
 
     private void Update()
@@ -69,27 +68,27 @@ public class EmoteMenu : MonoBehaviour
                 emote.SetScale(targetScale);
                 iconDistances.Add(baseDistance);
             }
-            currentEmote = emoteEntries[iconDistances.IndexOf(iconDistances.Min())].getEmoteName();
-            textObject.GetComponent<TextMeshProUGUI>().text = currentEmote;
+            currentEmote = emoteEntries[iconDistances.IndexOf(iconDistances.Min())].GetEmote();
+            textObject.GetComponent<TextMeshProUGUI>().text = currentEmote.DisplayName;
         }
     }
 
-    private void CreateEntry(Texture icon, string emoteName)
+    private void CreateEntry(Emote emote)
     {
         GameObject entry = Instantiate(entryPrefab, transform);
         entry.transform.SetParent(transform, false);
 
         EmoteEntry entryScript = entry.GetComponent<EmoteEntry>();
-        entryScript.Initialize(icon, emoteName);
+        entryScript.Initialize(emote);
 
         emoteEntries.Add(entryScript);
     }
 
     public void Open()
     {
-        for (int i = 0; i < emoteNames.Count; i++)
+        foreach (Emote emote in emotes)
         {
-            CreateEntry(emoteIcons[i], emoteNames[i]);
+            CreateEntry(emote);
         }
         Rearrange();
 
@@ -123,6 +122,7 @@ public class EmoteMenu : MonoBehaviour
         selectingEmote = false;
         textObject.SetActive(false);
         mouseLock.UpdateMouseState();
-        animator.SetTrigger(currentEmote);
+
+        player.PerformEmote(currentEmote);
     }
 }

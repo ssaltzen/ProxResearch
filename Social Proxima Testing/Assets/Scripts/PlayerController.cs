@@ -1,10 +1,11 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 namespace Proxemics
 {
-    public class PlayerController : MonoBehaviour
+    public class PlayerController : Player
     {
         [SerializeField] private Animator animator;
         private CharacterController controller;
@@ -110,6 +111,12 @@ namespace Proxemics
         private void OnGrab(InputAction.CallbackContext context)
         {
             objectPickup.PickupCheck();
+        }
+
+        public override void PerformEmote(Emote emote)
+        {
+            animator.SetTrigger(emote.name);
+            base.PerformEmote(emote);
         }
     }
 }

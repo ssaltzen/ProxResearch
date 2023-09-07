@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,7 +7,7 @@ using UnityEngine.SceneManagement;
 
 namespace Proxemics
 {
-    public class PlayerControllerVR : MonoBehaviour
+    public class PlayerControllerVR : Player
     {
         private ObjectPickup objectPickup;
         private EmoteMenu emoteMenu;
@@ -41,5 +42,6 @@ namespace Proxemics
         {
             objectPickup.PickupCheck();
         }
+
     }
 }

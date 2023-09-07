@@ -7,22 +7,19 @@ public class EmoteEntry : MonoBehaviour
 {
     [SerializeField] 
     private RawImage icon;
-    private string emoteName;
+    private Emote emote;
     
     [SerializeField]
     private const float initialScale = 0.85f;
 
-    public void Initialize(Texture pIcon, string emoteName)
+    public void Initialize(Emote emote)
     {
-        icon.texture = pIcon;
-        this.emoteName = emoteName;
+        this.emote = emote;
+        icon.texture = emote.Icon;
         SetScale(initialScale);
     }
 
-    public string getEmoteName()
-    {
-        return emoteName;
-    }
+    public Emote GetEmote() => emote;
 
     public void SetScale(float value)
     {
