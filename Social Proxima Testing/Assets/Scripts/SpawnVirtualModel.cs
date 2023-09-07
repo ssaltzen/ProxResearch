@@ -7,7 +7,7 @@ namespace Proxemics
     public class SpawnVirtualModel : MonoBehaviour
     {
         [SerializeField] private List<VirtualModel> virtualModels = new List<VirtualModel>();
-        [SerializeField] private PlayerController player;
+        [SerializeField] private Player player;
         [SerializeField] private GameObject playerHead;
 
 

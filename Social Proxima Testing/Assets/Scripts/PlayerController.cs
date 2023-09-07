@@ -5,10 +5,8 @@ using UnityEngine.SceneManagement;
 
 namespace Proxemics
 {
-    public class PlayerController : MonoBehaviour
+    public class PlayerController : Player
     {
-        public event Action<Emote> Emoted;
-
         [SerializeField] private Animator animator;
         private CharacterController controller;
         private Vector3 playerVelocity;
@@ -115,10 +113,10 @@ namespace Proxemics
             objectPickup.PickupCheck();
         }
 
-        public void PerformEmote(Emote emote)
+        public override void PerformEmote(Emote emote)
         {
             animator.SetTrigger(emote.name);
-            Emoted?.Invoke(emote);
+            base.PerformEmote(emote);
         }
     }
 }

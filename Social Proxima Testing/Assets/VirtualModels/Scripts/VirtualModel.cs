@@ -6,7 +6,7 @@ namespace Proxemics
 {
     public class VirtualModel : MonoBehaviour
     {
-        private PlayerController player;
+        private Player player;
         private Animator animator;
 
         private Emote lastPlayerEmote;
@@ -18,10 +18,10 @@ namespace Proxemics
             animator = GetComponent<Animator>();
         }
 
-        public void Init(PlayerController player)
+        public void Init(Player player)
         {
             this.player = player;
-            player.Emoted += OnPlayerEmoted;
+            player.PlayerEmoted += OnPlayerEmoted;
         }
 
         private void Update()
@@ -43,7 +43,7 @@ namespace Proxemics
         {
             if (player != null)
             {
-                player.Emoted -= OnPlayerEmoted;
+                player.PlayerEmoted -= OnPlayerEmoted;
             }
         }
 
