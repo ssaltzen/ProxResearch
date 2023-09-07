@@ -1,26 +1,36 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 namespace Proxemics
 {
-    public class PlayerController : MonoBehaviour
+    public class PlayerController : Player
     {
         [SerializeField] private Animator animator;
         private CharacterController controller;
         private Vector3 playerVelocity;
         private bool groundedPlayer;
-        
+        private ObjectPickup objectPickup;
+        private MouseLock mouseLock;
+        private StartRecording dataManager;
+        private EmoteMenu emoteMenu;
+
         [SerializeField] private float playerSpeed = 10.0f;
         [SerializeField] private float jumpHeight = 1.0f;
         [SerializeField] private float gravityValue = -15.00f;
 
-        private Vector2 moveDirection;
+        public Vector2 moveDirection { get; private set; }
         private Transform cameraTransform;
 
         private void Start()
         {
             controller = gameObject.GetComponent<CharacterController>();
+            objectPickup = gameObject.GetComponent<ObjectPickup>();
+            mouseLock = gameObject.GetComponent<MouseLock>();
             cameraTransform = FindObjectOfType<Camera>().gameObject.transform;
+            dataManager = gameObject.GetComponent<StartRecording>();
+            emoteMenu = FindObjectOfType<EmoteMenu>();
         }
 
         private void Update()
@@ -36,7 +46,7 @@ namespace Proxemics
             {
                 playerVelocity.y = 0f;
             }
-            // Pretty much stolen from CharacterController Move documention.
+            // Pretty much stolen from CharacterController Move documentation.
             Vector3 move = new Vector3(moveDirection.x, 0, moveDirection.y);
 
             // So player moves in direction of the camera.
@@ -53,9 +63,9 @@ namespace Proxemics
 
         private void Animate()
         {
-            animator.SetBool("Jump", !controller.isGrounded);
+            animator.SetBool("Grounded", controller.isGrounded);
 
-            // The ternery operator is for backwards diagonal movement.
+            // The ternary operator is for backwards diagonal movement.
             animator.SetFloat("Horizontal", moveDirection.x * (moveDirection.y >= 0 ? 1 : -1));
             animator.SetFloat("Vertical", moveDirection.y);
 
@@ -63,23 +73,50 @@ namespace Proxemics
         }
 
         // From Player Input component.
-        private void OnMove(InputValue value)
+        private void OnMove(InputAction.CallbackContext context)
         {
-            moveDirection = value.Get<Vector2>();
+            moveDirection = context.ReadValue<Vector2>();
         }
 
         // From Player Input component.
-        private void OnJump()
+        private void OnJump(InputAction.CallbackContext context)
         {
-            if (groundedPlayer)
+            if (groundedPlayer && context.started)
             {
-                playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
+                animator.SetTrigger("Jump");
+                playerVelocity.y += Mathf.Sqrt(jumpHeight * -0.75f * gravityValue);
             }
         }
 
-        private void OnFire()
+        private void OnFire(InputAction.CallbackContext context)
         {
-            animator.SetTrigger("Social");
+            if (context.started)
+            {
+                emoteMenu.Open();
+            }
+            else if (context.canceled)
+            {
+                emoteMenu.Close();
+            }
+        }
+
+        private void OnPause(InputAction.CallbackContext context)
+        {
+            mouseLock.UpdateMouseState();
+            /* var index = SceneManager.GetActiveScene().buildIndex + 1;
+            index %= 2; */
+            SceneManager.LoadScene(0);
+        }
+
+        private void OnGrab(InputAction.CallbackContext context)
+        {
+            objectPickup.PickupCheck();
+        }
+
+        public override void PerformEmote(Emote emote)
+        {
+            animator.SetTrigger(emote.name);
+            base.PerformEmote(emote);
         }
     }
 }

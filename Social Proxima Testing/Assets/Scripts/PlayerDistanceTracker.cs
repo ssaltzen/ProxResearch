@@ -21,10 +21,15 @@ public class PlayerDistanceTracker : MonoBehaviour
 
     private const string OpenCountKey = "OpenCount";
 
-    // Theoretically, the player will be interacting with a second model which will be sitting on the couch.
-    // So the couch for now is acting as distance from "player 2," which is important to highlight 
-    //      (can be replaced later with NPC object).
-    // Furniture locations need to be done after implementing final positions/movement capabilities!
+    private StartRecording dataManager;
+
+    private float time;
+    private float count = 0.0f;
+    
+    void Start()
+    {
+        dataManager = gameObject.GetComponent<StartRecording>();
+    }
 
     // Data items we want from this tracker:
     //      Horizontal distance from the player to the couch
@@ -69,9 +74,9 @@ public class PlayerDistanceTracker : MonoBehaviour
         {
             var npcDistance = Vector3.Distance(player.transform.position, couch.transform.position);
 
-            // The angle is specifically from the player's head to the couch (NPC) to represent a line-of-sight angle
+            // The angle is specifically from the player's head to the couch (NPC) to represent a line-of-sight angle.
             // The exact angle calculations could probably use work. Tinker to find what you need!
-            Vector3 toVector = playerHead.transform.position - couch.transform.position;
+            Vector3 toVector = playerHead.transform.position - npc.transform.position;
             float ncpAngle = Vector3.Angle(transform.up, toVector);
 
             float time = Time.time;

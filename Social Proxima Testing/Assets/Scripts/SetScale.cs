@@ -23,7 +23,7 @@ public class SetScale : MonoBehaviour
         float roomWidth = FurnitureMenuValues.width;
         float roomLighting = FurnitureMenuValues.lightLevel;
 
-        // Set default minimum
+        // Set default minimum to 9.
         if (roomLength < 9)
         {
             roomLength = 9.0f;
@@ -46,7 +46,7 @@ public class SetScale : MonoBehaviour
         float lengthSizeMultFactor = ratioOfLengthChange + 1;
         float widthSizeMultFactor = ratioOfWidthChange + 1;
 
-        // Change Wall Size
+        // Change Wall Size.
         roomCube.transform.localScale = new Vector3(
             roomCube.transform.localScale.x * lengthSizeMultFactor, 
             roomCube.transform.localScale.y, 
@@ -57,7 +57,7 @@ public class SetScale : MonoBehaviour
             roomCube.transform.localScale.y, 
             roomCube.transform.localScale.z * widthSizeMultFactor);
 
-        // Lighting Change
+        // Lighting Change.
         floresentLight1.GetComponent<Light>().intensity = roomLighting;
         floresentLight2.GetComponent<Light>().intensity = roomLighting;
         floresentLight3.GetComponent<Light>().intensity = roomLighting;

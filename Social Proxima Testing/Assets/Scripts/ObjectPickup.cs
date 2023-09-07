@@ -5,21 +5,6 @@ public class ObjectPickup : MonoBehaviour
     private GameObject pickedObject;
     private Transform originalParent;
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            if (pickedObject == null)
-            {
-                PickupObject();
-            }
-            else
-            {
-                ReleaseObject();
-            }
-        }
-    }
-
     private void PickupObject()
     {
         // Perform a raycast to detect an interactable object
@@ -30,6 +15,7 @@ public class ObjectPickup : MonoBehaviour
         {
             if (hit.collider.CompareTag("Interactable"))
             {
+                //Debug.Log("Hit");
                 // Store a reference to the picked object
                 pickedObject = hit.collider.gameObject;
 
@@ -63,5 +49,20 @@ public class ObjectPickup : MonoBehaviour
 
         // Reset the reference to the picked object
         pickedObject = null;
+    }
+
+    public void PickupCheck()
+    {
+        if (MainMenu.pickUp)
+        {
+            if (pickedObject == null)
+            {
+                PickupObject();
+            }
+            else
+            {
+                ReleaseObject();
+            }
+        }
     }
 }
